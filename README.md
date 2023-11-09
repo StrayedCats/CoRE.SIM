@@ -1,13 +1,11 @@
-# AWSIM
+# CoRE.SIM
 
-![](/README_img/AWSIM.png)
-
-AWSIM is the best scene simulator for [Autoware](https://github.com/autowarefoundation/autoware).
+CoRE.SIM is the best scene simulator for CoRE-1. CoRE.SIM is a project that forked from tier4/AWSIM.
 
 ## Features
 
 - Simulator components included (Vehicle, Sensor, Environment, ROS2, etc.)
-- Support for Ubuntu 22.04 and windows10/11
+- Support for Ubuntu 22.04
 - ROS2 native communication
 - Open source software
 - Made with Unity Game Engine
@@ -34,20 +32,10 @@ However, if the logic of the code is good, it does not matter if coding conventi
 
 ## License
 
-AWSIM License
-Applies to `tier4/AWSIM` repositories and all content contained in the [Releases](https://github.com/tier4/AWSIM/releases).
+CoRE.SIM & AWSIM License
+Applies to `StrayedCats/CoRE.SIM` repositories and all content contained in the [Releases](https://github.com/StrayedCats/CoRE.SIM/releases).
 
 - code : Apache 2.0
 - assets : CC BY-NC
 
 See also [LICENSE](./LICENSE)
-
-## Contact
-
-日本語/English OK
-
-e-mail : takatoki.makino@tier4.jp 
-discord : mackie#6141
-twitter : https&#58;//twitter.com/mackierx111
-
-(c) 2022 TIER IV, inc

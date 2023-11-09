@@ -1,11 +1,11 @@
 name: documentation_link_check
 
 on:
-  repository_dispatch:
-  workflow_dispatch:
-  schedule:
-    - cron: 0 0 * * *
-  pull_request:
+  # repository_dispatch:
+  # workflow_dispatch:
+  # schedule:
+  #   - cron: 0 0 * * *
+  # pull_request:
 
 jobs:
   link_checker:

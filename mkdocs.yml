@@ -1,6 +1,6 @@
-site_name: AWSIM document
+site_name: CoRE.SIM document
 
-repo_url: https://github.com/tier4/AWSIM
+repo_url: https://github.com/StrayedCats/CoRE.SIM
 
 theme:
   name: material
@@ -38,17 +38,6 @@ nav:
   - Getting started:
     - Quick Start Demo: GettingStarted/QuickStartDemo/index.md
     - Setup Unity Project: GettingStarted/SetupUnityProject/index.md
-
-  - Introduction:
-    - Autoware: Introduction/Autoware/index.md
-    - AWSIM: Introduction/AWSIM/index.md
-    - CombinationWithAutoware: Introduction/CombinationWithAutoware/index.md
-
-  - Project guide:
-    - Directory: ProjectGuide/Directory/index.md
-    - Scenes: ProjectGuide/Scenes/index.md
-    - Git Branch: ProjectGuide/GitBranch/index.md
-    - External Libraries: ProjectGuide/ExternalLibraries/index.md
 
   - Components:
     - Vehicle:

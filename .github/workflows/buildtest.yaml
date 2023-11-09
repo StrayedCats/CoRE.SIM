@@ -1,13 +1,13 @@
 name: buildtest
 on:
-  schedule:
-    - cron: 0 0 * * *
-  pull_request:
-  push:
-    branches:
-      - master 
-      - main
-  workflow_dispatch:
+  # schedule:
+  #   - cron: 0 0 * * *
+  # pull_request:
+  # push:
+  #   branches:
+  #     - master 
+  #     - main
+  # workflow_dispatch:
 
 jobs:
   build_test:
