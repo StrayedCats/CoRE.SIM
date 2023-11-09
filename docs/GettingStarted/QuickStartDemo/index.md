@@ -12,7 +12,7 @@ Please make sure that your machine meets the following requirements in order to 
 |OS|Ubuntu 22.04|
 |CPU|6cores and 12thread or higher|
 |GPU|RTX2070 or higher|
-|Nvidia Driver (Ubuntu 22)|>=515.43.04|
+|NVIDIA Driver (Ubuntu 22)|>=515.43.04|
 
 
 ### Localhost settings
