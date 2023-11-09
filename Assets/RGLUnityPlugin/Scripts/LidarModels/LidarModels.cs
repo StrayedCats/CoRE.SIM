@@ -25,6 +25,5 @@ namespace RGLUnityPlugin
         HesaiPandar40P,
         OusterOS1_64,
         HesaiAT128E2X,
-        HesaiPandarXT32,
     }
 }

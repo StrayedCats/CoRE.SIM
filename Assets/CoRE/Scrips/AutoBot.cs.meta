@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ba9d8d83e1ac2fee868e5a7a58c3797
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - gun_gameobj: {instanceID: 0}
+  - gun_target_gameobj: {instanceID: 0}
+  - red_ball: {fileID: 7535681071301648070, guid: 7392121f1cca0e3f9b0822d8441ae8ea, type: 3}
+  - green_ball: {fileID: 7535681071301648070, guid: 81b9aa47d403eeae480430ae3a6f0bab, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

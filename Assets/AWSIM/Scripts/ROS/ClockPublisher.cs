@@ -16,8 +16,6 @@ namespace AWSIM
 
         IPublisher<rosgraph_msgs.msg.Clock> clockPublisher;
         rosgraph_msgs.msg.Clock clockMsg;
-        float timer = 0;
-
         void PublishClock()
         {
             SimulatorROS2Node.UpdateROSClockTime(clockMsg.Clock_);

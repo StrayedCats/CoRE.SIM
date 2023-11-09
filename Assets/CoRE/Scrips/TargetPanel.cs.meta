@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0f54487df008f4441afd87ff74a3f345
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - panel_led_1: {instanceID: 0}
+  - panel_led_2: {instanceID: 0}
+  - red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
+  - blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

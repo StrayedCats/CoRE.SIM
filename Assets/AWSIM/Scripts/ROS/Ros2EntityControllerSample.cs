@@ -13,7 +13,6 @@ namespace AWSIM
     {
         public abstract class Entity
         {
-            private bool _spawned;
             private string _assetKey;
             private string _uniqueId;
             private geometry_msgs.msg.Pose _pose;
@@ -22,7 +21,6 @@ namespace AWSIM
 
             public Entity(string asset_key, string unique_id, Vector3 pose, float orientation)
             {
-                _spawned = false;
                 _assetKey = asset_key;
                 _uniqueId = unique_id;
                 _pose = new geometry_msgs.msg.Pose();
@@ -40,7 +38,6 @@ namespace AWSIM
                 spawn.Unique_id = _uniqueId;
                 spawn.Asset_key = _assetKey;
                 spawn.Pose = _pose;
-                _spawned = true;
                 return spawn;
             }
 
@@ -69,7 +66,6 @@ namespace AWSIM
             {
                 entity_controller_msgs.msg.DespawnEntity despawn = new entity_controller_msgs.msg.DespawnEntity();
                 despawn.Unique_id = _uniqueId;
-                _spawned = false;
                 return despawn;
             }
 
