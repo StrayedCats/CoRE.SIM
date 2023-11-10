@@ -3175,6 +3175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7509288745989304639}
   - component: {fileID: 4466519748211930014}
+  - component: {fileID: 2320690041691488801}
   m_Layer: 0
   m_Name: TargetPanel
   m_TagString: Untagged
@@ -3212,6 +3213,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.14556648, y: 0.14798832, z: 0.014220424}
   m_Center: {x: 0.00055313855, y: 0.08289133, z: -0.04263332}
+--- !u!114 &2320690041691488801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7169038981852015493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f54487df008f4441afd87ff74a3f345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel_led_1: {fileID: 3527325727076664239}
+  panel_led_2: {fileID: 3326796951181895755}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &7179703390324562914
 GameObject:
   m_ObjectHideFlags: 0

@@ -37409,8 +37409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_led_1: {fileID: 5515045480854656825}
   panel_led_2: {fileID: 781205880793250058}
-  red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
-  blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &3008561565473250468
 GameObject:
   m_ObjectHideFlags: 0
@@ -42673,8 +42673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_led_1: {fileID: 4353591090089370072}
   panel_led_2: {fileID: 2323358847193085852}
-  red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
-  blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &3397944695276768343
 GameObject:
   m_ObjectHideFlags: 0
@@ -76703,8 +76703,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_led_1: {fileID: 6357227555380895737}
   panel_led_2: {fileID: 1367553521808470141}
-  red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
-  blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &5936255743032179373
 GameObject:
   m_ObjectHideFlags: 0
@@ -78961,8 +78961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_led_1: {fileID: 5915715012917141163}
   panel_led_2: {fileID: 1306325205545544502}
-  red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
-  blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &6175456872399728277
 GameObject:
   m_ObjectHideFlags: 0
@@ -83399,8 +83399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_led_1: {fileID: 1830377430238632354}
   panel_led_2: {fileID: 5598379749417967884}
-  red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
-  blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &6512280497049399862
 GameObject:
   m_ObjectHideFlags: 0
@@ -94495,8 +94495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel_led_1: {fileID: 5376059832623935509}
   panel_led_2: {fileID: 7337189483308482236}
-  red_material: {fileID: 2100000, guid: f03c79ad2f857d9a283db70af7890d5a, type: 2}
-  blue_material: {fileID: 2100000, guid: f6313f2e2ce1fe9c8a29e752865bc0e1, type: 2}
+  red_material: {fileID: 2100000, guid: 70f558449e2492081a3cbeba86d00213, type: 2}
+  blue_material: {fileID: 2100000, guid: 51490b367e036f491a4568c3428da1e0, type: 2}
 --- !u!1 &7428437104397799848
 GameObject:
   m_ObjectHideFlags: 0
