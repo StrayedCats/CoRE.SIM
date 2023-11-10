@@ -78,20 +78,24 @@ public class AutoBot : MonoBehaviour
         
 
         // Auto Robot Shot Control
-        if(sub_msg.Linear.X >= 0.1 || sub_msg.Linear.X <= -0.1){
-          if(sub_msg.Linear.X <= 10 && sub_msg.Linear.X >= -10){
-            double dx = sub_msg.Linear.X * 57.295779;
+        if(Mathf.Abs((float)sub_msg.Linear.X) >= 0.1 && Mathf.Abs((float)sub_msg.Linear.X) <= 10){
+            float forceRandomness = Random.Range(0.9f, 1.1f);
+            Vector3 torqueRandomness = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+
             GameObject obj;
             if(Random.value > 0.5){
-              obj = Instantiate (red_ball, gun_target_gameobj.transform.position, Quaternion.Euler(gun_target_gameobj.transform.parent.eulerAngles.x,gun_target_gameobj.transform.parent.eulerAngles.y,0));
+                obj = Instantiate(red_ball, gun_target_gameobj.transform.position, Quaternion.Euler(gun_target_gameobj.transform.parent.eulerAngles.x, gun_target_gameobj.transform.parent.eulerAngles.y, 0));
             }else{
-              obj = Instantiate (green_ball, gun_target_gameobj.transform.position, Quaternion.Euler(gun_target_gameobj.transform.parent.eulerAngles.x,gun_target_gameobj.transform.parent.eulerAngles.y,0));
+                obj = Instantiate(green_ball, gun_target_gameobj.transform.position, Quaternion.Euler(gun_target_gameobj.transform.parent.eulerAngles.x, gun_target_gameobj.transform.parent.eulerAngles.y, 0));
             }
+
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.AddForce(gun_target_gameobj.transform.forward * (float)sub_msg.Linear.X * 57.295779f * forceRandomness);
+            rb.AddTorque(torqueRandomness * 10f);
             
-            obj.GetComponent<Rigidbody>().AddForce(gun_target_gameobj.transform.forward * (float)dx);
             sub_msg.Linear.X = 0;
-          }
         }
+
 
         // Robot State Pub
         geometry_msgs.msg.Pose msg_pose = new geometry_msgs.msg.Pose();
