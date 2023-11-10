@@ -10,8 +10,8 @@ Please make sure that your machine meets the following requirements in order to 
 |Required PC Specs||
 |:--|:--|
 |OS|Ubuntu 22.04|
-|CPU|6cores and 12thread or higher|
-|GPU|RTX2070 or higher|
+|CPU|4cores and 8thread or higher|
+|GPU|GTX 1070 or higher|
 |NVIDIA Driver (Ubuntu 22)|>=515.43.04|
 
 
@@ -79,27 +79,27 @@ To run the simulator, please follow the steps below.
 
 3. Download and Run CoRE.SIM Demo binary.
 
-    1. Download `CoRE.Auto-rc1.zip`.
+    1. Download `CoRE.SIM.zip`.
 
-        [Download CoRE.SIM Demo for ubuntu](https://github.com/StrayedCats/CoRE.SIM/releases/download/v0.1.0/CoRE.Auto-rc1.zip){.md-button .md-button--primary}
+        [Download CoRE.SIM Demo for ubuntu](https://github.com/StrayedCats/CoRE.SIM/releases){.md-button .md-button--primary}
     
     2. Unzip the downloaded file.
 
-    3. Make the `CoRE.Auto-rc1.x86_64` file executable.
+    3. Make the `CoRE.Sim.x86_64` file executable.
 
-        Rightclick the `CoRE.Auto-rc1.x86_64` file and check the `Execute` checkbox
+        Rightclick the `CoRE.SIM.x86_64` file and check the `Execute` checkbox
 
         ![](Image_1.png)
 
         or execute the command below.
 
         ```
-        chmod +x <path to CoRE.SIM folder>/CoRE.Auto-rc1.x86_64
+        chmod +x <path to CoRE.SIM folder>/CoRE.SIM.x86_64
         ```
 
-    4. Launch `CoRE.SIM_demo.x86_64`.
+    4. Launch `CoRE.SIM.x86_64`.
         ```
-        ./<path to CoRE.SIM folder>/CoRE.Auto-rc1.x86_64
+        ./<path to CoRE.SIM folder>/CoRE.SIM.x86_64
         ``` 
         
         !!! warning

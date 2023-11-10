@@ -85,8 +85,5 @@ nav:
       - ROS2 For Unity: Components/ROS2/ROS2ForUnity/index.md
 
   - Developer guide:
-    - How to Contribute: DeveloperGuide/HowToContribute/index.md
-    - Trouble shooting: DeveloperGuide/TroubleShooting/index.md
     - Documentation: DeveloperGuide/Documentation/index.md
     - License : DeveloperGuide/License/index.md
-    - Contact : DeveloperGuide/Contact/index.md

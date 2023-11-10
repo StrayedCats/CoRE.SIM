@@ -5,12 +5,12 @@ This document uses [Material for MkDocs](https://squidfunk.github.io/mkdocs-mate
 
 1 Install Material for `MkDocs`.
 ```
-$ pip install mkdocs-material
+python3 -m pip install mkdocs-material
 ```
 2 Hosting on localhost.
 ```
-$ cd AWSIM
-$ mkdocs serve
+$ cd CoRE.SIM
+$ python3 -m mkdocs serve
 INFO     -  Building documentation...
 INFO     -  Cleaning site directory
 INFO     -  Documentation built in 0.16 seconds
@@ -28,19 +28,16 @@ For further reference see [Material for MkDocs - Getting started](https://squidf
 ## MkDocs files
 Use the following `/docs` directory and `mkdocs.yml` for new documentation files.
 ```
-AWSIM
+CoRE.SIM
 ├─ docs/                // markdown and image file for each document.
 └─ mkdocs.yml           // mkdocs config.
 ```
 Create one directory per document. For example, the directory structure of this "Documentation" page might look like this.
 ```
-AWSIM
+CoRE.SIM
 └─ docs/                            // Root of all documents
     └─ DeveloperGuide               // Category
         └─ Documentation            // Root of each document
             ├─ index.md             // Markdown file
             └─ image_0.png          // Images used in markdown file
 ```
-
-## Deploy & Hosting
-When docs are pushed to the main branch, they are deployed to GitHub Pages using GitHub Actions. See also [Material for MkDocs - Publishing your site](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
