@@ -45,14 +45,9 @@ public class BotAttacker : MonoBehaviour
         }else{
             return;
         }
-        if(DiskAtck(0)){return;}
-        if(DiskAtck(45)){return;}
-        if(DiskAtck(90)){return;}
-        if(DiskAtck(135)){return;}
-        if(DiskAtck(180)){return;}
-        if(DiskAtck(-45)){return;}
-        if(DiskAtck(-90)){return;}
-        if(DiskAtck(-135)){return;}
-        if(DiskAtck(-180)){return;}
+        int lines = 10;
+        for(int i = 0; i < lines ; i++){
+            if(DiskAtck(i * (360 / lines))){return;}
+        }
     }
 }
