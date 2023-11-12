@@ -1,84 +1,87 @@
-# Setup Unity Project
+# Unityプロジェクトのセットアップ(推奨)
 
-!!! info
+このページは、CoRE.SIM Unityプロジェクトのセットアップに関するチュートリアルです。
 
-    It is advised to checkout the [Quick Start Demo](../QuickStartDemo) tutorial before reading this section.
+## 環境の準備
 
-This page is a tutorial for setting up a CoRE.SIM Unity project.
+### システムのセットアップ
 
-## Environment preparation
+**Ubuntu 22.04 & Ubuntu 20.04**
 
-### System setup
+1. ご使用のマシンが[必要なハードウェア仕様](../QuickStartDemo/#pc-specs)を満たしていることを確認してください。
+    - *注意: PCの要件は、シミュレーション内容に応じて変化する可能性があります*
+2. Ubuntu 22.04がインストールされたデスクトップPCを用意します。
+3. [NVIDIAドライバーとVulkan Graphics API](../QuickStartDemo/#running-the-awsim-simulation-demo)をインストールします。
+4. [git](https://git-scm.com/)をインストールします。
+5. [ROS 2をインストールします。](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
+6. '.bashrc'と'.profile'に以下を書き込みます。
+    ```
+    source /opt/ros/humble/setup.bash
+    export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+    ```
 
-**Ubuntu 22**
 
-1. Make sure your machine meets the [required hardware specifications](../QuickStartDemo/#pc-specs).
-    - *NOTE: PC requirements may vary depending on simulation contents which may change as the simulator develops*
-2. Prepare a desktop PC with Ubuntu 22.04 installed.
-2. Install [NVIDIA drivers and Vulkan Graphics API](../QuickStartDemo/#running-the-awsim-simulation-demo).
-3. Install [git](https://git-scm.com/).
+### Unity Hubのインストール
+[このページ](https://docs.unity3d.com/hub/manual/InstallHub.html#install-hub-linux)の指示に従ってください。
 
-
-### Unity Hub Installation
-Follow the instructions on [this page](https://docs.unity3d.com/hub/manual/InstallHub.html#install-hub-linux).
-
-1. To add the public signing key, execute the following command in the terminal:
+1. 公開署名キーを追加するには、ターミナルで次のコマンドを実行します：
     ```bash
     wget -qO - https://hub.unity3d.com/linux/keys/public | gpg --dearmor | sudo tee /usr/share/keyrings/Unity_Technologies_ApS.gpg > /dev/null
     ```
 
-2. To include the Unity Hub repository, you must create an entry in `/etc/apt/sources.list.d`. Use this command to add the Unity Hub repository:
+2. Unity Hubリポジトリを含めるには、`/etc/apt/sources.list.d`にエントリーを作成する必要があります。以下のコマンドを使用してUnity Hubリポジトリを追加します：
     ```bash
     sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/Unity_Technologies_ApS.gpg] https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list'
     ```
 
-3. Refresh the package cache and install Unity Hub with these commands:
+3. パッケージキャッシュを更新し、次のコマンドでUnity Hubをインストールします：
     ```bash
     sudo apt update
     sudo apt install unityhub
     ```
 
-4. Launch Unity Hub and acquire a license. For most users, the Personal license will be sufficient.
+4. Unity Hubを起動し、ライセンスを取得します。ほとんどのユーザーにとって、個人用ライセンスが十分でしょう。
 
-### Open CoRE.SIM project
+### CoRE.SIMプロジェクトを開く
 
-To open the Unity CoRE.SIM project in Unity Editor:
-1. Make sure you have the CoRE.SIM repository cloned
+UnityエディターでUnity CoRE.SIMプロジェクトを開くには：
+
+1. CoRE.SIMリポジトリをクローンしていることを確認してください
     ```
     git clone https://github.com/StrayedCats/CoRE.SIM.git
     ```
 
-2. Launch UnityHub.
+2. Unity Hubを起動します。
 
-3. Open the project in UnityHub
-    - Click the `Add` button
+3. Unity Hubでプロジェクトを開きます
+    - `Add` ボタンをクリック
 
     ![](pic-0.png)
 
-    - Navigate the directory where the CoRE.SIM repository was cloned to
+    - CoRE.SIMリポジトリがクローンされたディレクトリに移動
 
-    - install Unity edtitor
+    - Unityエディターをインストール
 
     ![](pic-1.png)
 
     ![](pic-2.png)
 
-    - The project is now ready to use
+    - プロジェクトはこれで使用準備ができています
 
     ![](pic-3.png)
 
 !!! warning
 
-    If you get the safe mode dialog when starting UnityEditor, you may need to install openssl.
+    UnityEditorを起動する際にセーフモードのダイアログが表示される場合、opensslをインストールする必要があるかもしれません。
 
-    1. download libssl  
+    1. libsslをダウンロード  
     `wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_amd64.deb`
-    2. install  
+    2. インストール  
     `sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_amd64.deb`
 
-### Run CoRE.SIM
+### CoRE.SIMを実行する
 
-1. Open the `OutdoorScene.unity` scene placed under `Assets/CoRE/` directory
-2. Run the simulation by clicking `Play` button placed at the top section of Editor.
+1. `Assets/CoRE/` ディレクトリの下に配置された `OutdoorScene.unity` シーンを開きます。
+2. エディターの上部にある `Play` ボタンをクリックしてシミュレーションを実行します。
 ![](pic-5.png)
 <br><br><br><br>

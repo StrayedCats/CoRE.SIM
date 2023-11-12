@@ -1,43 +1,47 @@
-# Documentation
-This document uses [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). 
+# ドキュメンテーション
+この文書は [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) を使用しています。
 
-## Local hosting
+## ローカルホスティング
 
-1 Install Material for `MkDocs`.
-```
-python3 -m pip install mkdocs-material
-```
-2 Hosting on localhost.
-```
-$ cd CoRE.SIM
-$ python3 -m mkdocs serve
-INFO     -  Building documentation...
-INFO     -  Cleaning site directory
-INFO     -  Documentation built in 0.16 seconds
-INFO     -  [03:13:22] Watching paths for changes: 'docs', 'mkdocs.yml'
-INFO     -  [03:13:22] Serving on http://127.0.0.1:8000/
-```
+1. `MkDocs` 用の Material をインストールします。
+   ```
+   python3 -m pip install mkdocs-material
+   ```
 
+2. ローカルホスティングを開始します。
+   ```
+   $ cd CoRE.SIM
+   $ python3 -m mkdocs serve
+   
+    INFO     -  Building documentation...
+    INFO     -  Cleaning site directory
+    INFO     -  Documentation built in 0.16 seconds
+    INFO     -  [03:13:22] Watching paths for changes: 'docs', 'mkdocs.yml'
+    INFO     -  [03:13:22] Serving on http://127.0.0.1:8000/
+   ```
 
-3 Access `http://127.0.0.1:8000/` with a web browser.
-<!-- (TODO change image) -->
-![](image_0.png)
+3. ウェブブラウザで `http://127.0.0.1:8000/` にアクセスします。
+   <!-- (TODO 画像を変更) -->
+   ![](image_0.png)
 
-For further reference see [Material for MkDocs - Getting started](https://squidfunk.github.io/mkdocs-material/getting-started/).
+詳細は [Material for MkDocs - 入門](https://squidfunk.github.io/mkdocs-material/getting-started/) を参照してください。
 
-## MkDocs files
-Use the following `/docs` directory and `mkdocs.yml` for new documentation files.
+## MkDocs ファイル
+新しいドキュメンテーションファイルには、次の `/docs` ディレクトリと `mkdocs.yml` を使用します。
+
 ```
 CoRE.SIM
-├─ docs/                // markdown and image file for each document.
-└─ mkdocs.yml           // mkdocs config.
+├─ docs/                // 各ドキュメントのマークダウンと画像ファイル
+└─ mkdocs.yml           // MkDocs の設定
 ```
-Create one directory per document. For example, the directory structure of this "Documentation" page might look like this.
+
+各ドキュメントごとにディレクトリを作成します。例えば、この "Documentation" ページのディレクトリ構造は次のようになるかもしれません。
+
 ```
 CoRE.SIM
-└─ docs/                            // Root of all documents
-    └─ DeveloperGuide               // Category
-        └─ Documentation            // Root of each document
-            ├─ index.md             // Markdown file
-            └─ image_0.png          // Images used in markdown file
+└─ docs/                            // すべてのドキュメントのルート
+    └─ DeveloperGuide               // カテゴリ
+        └─ Documentation            // 各ドキュメントのルート
+            ├─ index.md             // マークダウンファイル
+            └─ image_0.png          // マークダウンファイルで使用される画像
 ```

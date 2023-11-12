@@ -1,11 +1,11 @@
-# AWSIM Licenses
+# CoRE.SIMおよびAWSIMライセンス
 
-*AWSIM License* applies to [tier4/AWSIM repositories](https://github.com/tier4/AWSIM) and all content contained in the [Releases](https://github.com/tier4/AWSIM/releases).
+*CoRE.SIMおよびAWSIMライセンス*は[tier4/AWSIMリポジトリ](https://github.com/tier4/AWSIM)および[Releases](https://github.com/tier4/AWSIM/releases)に含まれるすべてのコンテンツに適用されます。
 
-- *AWSIM* specific code is distributed under *Apache2.0 License*.  
-The following extensions are included (`*.cs` `*.compute` `*.xml`)
-- *AWSIM* specific assets are distributed under *CC BY-NC License*.  
-The following extensions are included (`*.fbx` `*.pcd` `*.osm` `*.png` `*.anim` `*.unitypackage` `*.x86_64`)
+- *CoRE.SIMおよびAWSIM*固有のコードは*Apache2.0ライセンス*の下で配布されています。  
+次の拡張子が含まれています（`*.cs` `*.compute` `*.xml`）
+- *CoRE.SIMおよびAWSIM*固有のアセットは*CC BY-NCライセンス*の下で配布されています。  
+次の拡張子が含まれています（`*.fbx` `*.pcd` `*.osm` `*.png` `*.anim` `*.unitypackage` `*.x86_64`)
 
 ##### Apache2.0 License
 ```

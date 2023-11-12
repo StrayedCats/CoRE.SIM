@@ -1,11 +1,11 @@
 # CoRE.SIM
 
-CoRE.SIM is the best scene simulator for CoRE-1. CoRE.SIM is a project that forked from tier4/AWSIM.
+CoRE.SIMはCoRE-1向けの最高のシーンシミュレータです。CoRE.SIMは、tier4/AWSIMからフォークされたプロジェクトです。
 
-## Features
+## 特徴
 
-- Simulator components included (Vehicle, Sensor, Environment, ROS2, etc.)
-- Support for Ubuntu 22.04
-- ROS2 native communication
-- Open source software
-- Made with Unity Game Engine
+- シミュレーターコンポーネントが含まれています（車両、センサー、環境、ROS2など）。
+- Ubuntu 22.04のサポート
+- ROS2ネイティブ通信
+- オープンソースソフトウェア
+- Unityゲームエンジンで作成されました。

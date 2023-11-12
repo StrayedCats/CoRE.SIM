@@ -1,107 +1,108 @@
-# Quick Start Demo
+# クイックスタートデモ
 
-Below you can find instructions on how to setup the self-driving demo of CoRE.SIM simulation controlled by Autoware.
-The instruction assumes using the Ubuntu OS.
+!!! info
 
-### PC specs
+    現在、[Unityプロジェクトのセットアップ](../SetupUnityProject)のチュートリアルが推奨されています。
 
-Please make sure that your machine meets the following requirements in order to run the simulation correctly:
+以下に、CoRE.SIMシミュレーションのセットアップ手順があります。この手順はUbuntu OSを使用することを前提としています。
 
-|Required PC Specs||
+### PCの仕様
+
+シミュレーションを正しく実行するために、コンピュータが以下の要件を満たしていることを確認してください：
+
+|必要なPC仕様||
 |:--|:--|
 |OS|Ubuntu 22.04|
-|CPU|4cores and 8thread or higher|
-|GPU|GTX 1070 or higher|
-|NVIDIA Driver (Ubuntu 22)|>=515.43.04|
+|CPU|4コアと8スレッド以上|
+|GPU|GTX 1070以上|
+|NVIDIAドライバー（Ubuntu 22）|>=515.43.04|
 
 
-### Localhost settings
+### ローカルホストの設定
 
-The simulation is based on the appropriate network setting, which allows for trouble-free communication of the CoRE.SIM simulation with the Autoware software.
-To apply required localhost settings please add the following lines to `~/.bashrc` & `~/.profile` files.
+シミュレーションは、CoRE.SIMシミュレーションとROS 2ソフトウェアのトラブルフリーな通信を可能にする適切なネットワーク設定に基づいています。
+必要なローカルホスト設定を適用するには、次の行を`~/.bashrc`および`~/.profile`ファイルに追加してください。
 
-``` bash
+```bash
 source /opt/ros/humble/setup.bash
 export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ```
 
-## Start the demo
+## デモの開始
 
-### Running the CoRE.SIM simulation demo
+### CoRE.SIMシミュレーションデモの実行
 
-To run the simulator, please follow the steps below.
+シミュレータを実行するには、以下の手順に従ってください。
 
-1. Install Nvidia GPU driver (Skip if already installed).
-    1. Install the recommended version of the driver.
-    ```
-    sudo apt update
-    sudo ubuntu-drivers autoinstall
-    ```
-    2. Reboot your machine to make the installed driver detected by the system.
-    ```
-    sudo reboot
-    ```
-    3. Open terminal and check if `nvidia-smi` command is available and outputs summary similar to the one presented below.
-    ```
-    $ nvidia-smi 
-    Fri Oct 14 01:41:05 2022       
-    +-----------------------------------------------------------------------------+
-    | NVIDIA-SMI 515.65.01    Driver Version: 515.65.01    CUDA Version: 11.7     |
-    |-------------------------------+----------------------+----------------------+
-    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-    |                               |                      |               MIG M. |
-    |===============================+======================+======================|
-    |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
-    | 37%   31C    P8    30W / 250W |    188MiB / 11264MiB |      3%      Default |
-    |                               |                      |                  N/A |
-    +-------------------------------+----------------------+----------------------+
+1. NVIDIA GPUドライバーをインストールします（すでにインストールされている場合はスキップ）。
+   1. 推奨されるバージョンのドライバーをインストールします。
+   ```
+   sudo apt update
+   sudo ubuntu-drivers autoinstall
+   ```
+   2. インストールされたドライバーがシステムに検出されるように、マシンを再起動します。
+   ```
+   sudo reboot
+   ```
+   3. ターミナルを開いて、`nvidia-smi`コマンドが利用可能で、以下に示すような要約を出力するか確認します。
+   ```
+   $ nvidia-smi 
+   Fri Oct 14 01:41:05 2022       
+   +-----------------------------------------------------------------------------+
+   | NVIDIA-SMI 515.65.01    Driver Version: 515.65.01    CUDA Version: 11.7     |
+   |-------------------------------+----------------------+----------------------+
+   | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+   | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+   |                               |                      |               MIG M. |
+   |===============================+======================+======================|
+   |   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
+   | 37%   31C    P8    30W / 250W |    188MiB / 11264MiB |      3%      Default |
+   |                               |                      |                  N/A |
+   +-------------------------------+----------------------+----------------------+
 
-    +-----------------------------------------------------------------------------+
-    | Processes:                                                                  |
-    |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-    |        ID   ID                                                   Usage      |
-    |=============================================================================|
-    |    0   N/A  N/A      1151      G   /usr/lib/xorg/Xorg                133MiB |
-    |    0   N/A  N/A      1470      G   /usr/bin/gnome-shell               45MiB |
-    +-----------------------------------------------------------------------------+
-    ```
+   +-----------------------------------------------------------------------------+
+   | Processes:                                                                  |
+   |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+   |        ID   ID                                                   Usage      |
+   |=============================================================================|
+   |    0   N/A  N/A      1151      G   /usr/lib/xorg/Xorg                133MiB |
+   |    0   N/A  N/A      1470      G   /usr/bin/gnome-shell               45MiB |
+   +-----------------------------------------------------------------------------+
+   ```
 
-2. Install Vulkan Graphics Library (Skip if already installed).
-    1. Update the environment.
-    ```
-    sudo apt update
-    ```
-    2. Install the library.
-    ```
-    sudo apt install libvulkan1
-    ```
+2. Vulkan Graphics Libraryをインストールします（すでにインストールされている場合はスキップ）。
+   1. 環境を更新します。
+   ```
+   sudo apt update
+   ```
+   2. ライブラリをインストールします。
+   ```
+   sudo apt install libvulkan1
+   ```
 
-3. Download and Run CoRE.SIM Demo binary.
+3. CoRE.SIMデモバイナリをダウンロードして実行します。
 
-    1. Download `CoRE.SIM.zip`.
+   1. `CoRE.SIM.zip`をダウンロードします。
 
-        [Download CoRE.SIM Demo for ubuntu](https://github.com/StrayedCats/CoRE.SIM/releases){.md-button .md-button--primary}
+      [Ubuntu用のCoRE.SIMデモをダウンロード](https://github.com/StrayedCats/CoRE.SIM/releases){.md-button .md-button--primary}
     
-    2. Unzip the downloaded file.
+   2. ダウンロードしたファイルを解凍します。
 
-    3. Make the `CoRE.Sim.x86_64` file executable.
+   3. `CoRE.SIM.x86_64`ファイルに実行権限を付与します。
 
-        Rightclick the `CoRE.SIM.x86_64` file and check the `Execute` checkbox
+      `CoRE.SIM.x86_64`ファイルを右クリックし、`実行`のチェックボックスをオンにします
 
-        ![](Image_1.png)
+      または、以下のコマンドを実行します。
 
-        or execute the command below.
+      ```
+      chmod +x <CoRE.SIMフォルダへのパス>/CoRE.SIM.x86_64
+      ```
 
-        ```
-        chmod +x <path to CoRE.SIM folder>/CoRE.SIM.x86_64
-        ```
-
-    4. Launch `CoRE.SIM.x86_64`.
-        ```
-        ./<path to CoRE.SIM folder>/CoRE.SIM.x86_64
-        ``` 
+   4. `CoRE.SIM.x86_64`を起動します。
+      ```
+      ./<CoRE.SIMフォルダへのパス>/CoRE.SIM.x86_64
+      ``` 
         
-        !!! warning
+      !!! 注意
         
-            It may take some time for the application to start the so please wait until image similar to the one presented below is visible in your application window.
+          アプリケーションが起動するまでに時間がかかる場合があるので、アプリケーションウィンドウに以下に似た画像が表示されるまでお待ちください。

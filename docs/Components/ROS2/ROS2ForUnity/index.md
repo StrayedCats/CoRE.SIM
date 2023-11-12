@@ -4,99 +4,92 @@
 [time]: https://docs.ros2.org/latest/api/builtin_interfaces/msg/Time.html
 
 # ROS2 For Unity
-[*Ros2ForUnity*](https://github.com/RobotecAI/ros2-for-unity) (`R2FU`) module is a communication solution that effectively connects *Unity* and the *ROS2* ecosystem, maintaining a strong integration.
-Unlike other solutions, it doesn't rely on bridging communication but rather utilizes the *ROS2* middleware stack (specifically the `rcl` layer and below), enabling the inclusion of *ROS2* nodes within *Unity* simulations.
+[*Ros2ForUnity*](https://github.com/RobotecAI/ros2-for-unity)（`R2FU`）モジュールは、*Unity*と*ROS2*エコシステムを効果的に接続するコミュニケーションソリューションで、強力な統合を維持します。
+他のソリューションとは異なり、通信をブリッジングに依存せず、むしろ*ROS2*ミドルウェアスタック（特に`rcl`レイヤーおよびそれ以下）を利用して、*Unity*シミュレーション内で*ROS2*ノードを含めることができます。
 
-`R2FU` is used in *AWSIM* for many reasons.
-First of all, because it offers high-performance integration between *Unity* and *ROS2*, with improved throughput and lower latencies compared to bridging solutions.
-It provides real *ROS2* functionality for simulation entities in *Unity*, supports standard and custom messages, and includes convenient abstractions and tools, all wrapped as a *Unity* asset.
-For a detailed description, please see [*README*](https://github.com/RobotecAI/ros2-for-unity/blob/master/README.md).
+`R2FU`は多くの理由で*CoRE.SIM*で使用されています。
+まず第一に、*Unity*と*ROS2*間の高性能な統合を提供し、ブリッジングソリューションと比較してスループットが向上し、レイテンシが低くなります。
+*Unity*内のシミュレーションエンティティに対して実際の*ROS2*機能を提供し、標準およびカスタムメッセージをサポートし、*Unity*アセットとしてラップされた便利な抽象化とツールを含んでいます。
+詳細な説明については、[*README*](https://github.com/RobotecAI/ros2-for-unity/blob/master/README.md)をご覧ください。
 
-## Prerequisites
-This asset can be prepared in two flavours:
+## 前提条件
+このアセットは、2つの異なるモードで準備できます：
 
-- *standalone mode* - where no *ROS2* installation is required on target machine, e.g., your *Unity* simulation server.
-All required dependencies are installed and can be used e.g. as a complete set of *Unity* plugins.
-- *overlay mode* - where the *ROS2* installation is required on target machine.
-Only asset libraries and generated messages are installed therefore *ROS2* instance must be sourced.
+- *スタンドアロンモード* - このモードでは、対象のマシンに *ROS2* のインストールが必要ありません。例：*Unity* シミュレーションサーバー。
+必要なすべての依存関係がインストールされ、完全な *Unity* プラグインセットとして使用できます。
+- *オーバーレイモード* - このモードでは、対象のマシンに *ROS2* のインストールが必要です。
+アセットライブラリと生成されたメッセージのみがインストールされるため、*ROS2* のインスタンスをソース化する必要があります。
 
-By default, asset `R2FU` in *AWSIM* is prepared in *standalone mode*.
-Thanks to this, *ROS2* instance doesn't need to be sourced - all you have to do is run the *Unity* editor.
+デフォルトでは、*CoRE.SIM* のアセット `R2FU` は *スタンドアロンモード* で準備されています。
+これにより、*ROS2* のインスタンスをソース化する必要がなく、*Unity* エディタを実行するだけで済みます。
 
-!!! question "Can't see topics"
-    There are no errors but I can't see topics published by `R2FU`
+!!! 質問 "トピックが表示されない"
+    エラーは表示されませんが、`R2FU` によって発行されたトピックが表示されません。
 
-    - Make sure your DDS ([Localhost settings](../../../GettingStarted/QuickStartDemo/#localhost-settings)) config is correct.
-    - Sometimes *ROS2* daemon brakes up when changing network interfaces or *ROS2* version.
-Try to stop it forcefully (`pkill -9 ros2_daemon`) and restart (`ros2 daemon start`).
+    - DDS（[localhostの設定](../../../GettingStarted/QuickStartDemo/#localhost-settings)）の設定が正しいことを確認してください。
+    - 時々 *ROS2* デーモンはネットワークインターフェースの変更や *ROS2* バージョンの変更時に中断することがあります。
+
+    強制的に停止してみてください（`pkill -9 ros2_daemon`） そして再起動してください（`ros2 daemon start`）。
 
 ## Concept
-Describing the concept of using `R2FU` in *AWSIM*, we distinguish:
+「CoRE.SIM」内で「R2FU」の概念を説明する際、以下の点を区別します：
 
-- *ROS2Node* - it is the equivalent of a node in *ROS2*, it has its own name, it can have any number of subscribers, publishers, service servers and service clients.
-In the current *AWSIM* implementation, there is only one main node.
-- *ROS2Clock* - it is responsible for generating the simulation time using the selected source.
-- *SimulatorROS2Node* - it is a class that is directly responsible for *AWSIM<->ROS2* communication, and contains one instance each of *ROS2Node* and *ROS2Clock*, so it creates the main *AWSIM* node in *ROS2* and simulates the time from the selected source (currently [UnityTimeSource](https://docs.unity3d.com/ScriptReference/Time.html) is used).
-It is initialized at the moment of running the scene in *Unity* - thanks to the [`RuntimeInitializeOnLoadMethod`](https://docs.unity3d.com/ScriptReference/RuntimeInitializeOnLoadMethodAttribute.html) mark.
-- *Publisher* - it is the equivalent of the publisher in *ROS2*, it uses a single topic on which it can publish a selected type of message, and it has a selected [*QoS*][qos] profile.
-Each publisher in *AWSIM* is created in *ROS2Node* object of class *SimulatorROS2Node*.
-- *Subscriber* - it is the equivalent of the subscriber in *ROS2*, it uses a single topic from which it subscribes to the selected type of message, and it has a selected [*QoS*][qos] profile.
-Each subscriber in *AWSIM* is created in *ROS2Node* object of class *SimulatorROS2Node*.
- 
-<!-- - TODO: *Service Server* -  -->
-<!-- - TODO: *Service Client* - -->
+- *ROS2Node* - これは *ROS2* のノードに相当し、独自の名前を持ち、任意の数のサブスクライバ、パブリッシャ、サービスサーバ、およびサービスクライアントを持つことができます。現在の *CoRE.SIM* の実装では、メインノードは1つしかありません。
+- *ROS2Clock* - これは選択したソースを使用してシミュレーション時間を生成する責任があります。
+- *SimulatorROS2Node* - これは *CoRE.SIM<->ROS2* の通信に直接責任を負うクラスで、*ROS2Node* および *ROS2Clock* の各1つのインスタンスを含み、*ROS2* でメインの *CoRE.SIM* ノードを作成し、選択したソースから時間をシミュレーションします（現在は [UnityTimeSource](https://docs.unity3d.com/ScriptReference/Time.html) が使用されています）。これは *Unity* シーンを実行する瞬間に [`RuntimeInitializeOnLoadMethod`](https://docs.unity3d.com/ScriptReference/RuntimeInitializeOnLoadMethodAttribute.html) マークを使用して初期化されます。
+- *Publisher* - これは *ROS2* のパブリッシャに相当し、選択したメッセージのタイプを発行できる単一のトピックを使用し、選択した [*QoS*][qos] プロファイルを持っています。*CoRE.SIM* 内の各パブリッシャは、*SimulatorROS2Node* クラスの *ROS2Node* オブジェクト内で作成されます。
+- *Subscriber* - これは *ROS2* のサブスクライバに相当し、選択したメッセージのタイプをサブスクライブするための単一のトピックを使用し、選択した [*QoS*][qos] プロファイルを持っています。*CoRE.SIM* 内の各サブスクライバは、*SimulatorROS2Node* クラスの *ROS2Node* オブジェクト内で作成されます。
 
-The *SimulatorROS2Node* implementation, thanks to the use of `R2FU`, allows you to add communication via *ROS2* to any Unity component.
-For example, we can receive control commands from any other *ROS2* node and publish the current state of *Ego*, such as its position in the environment.
+「SimulatorROS2Node」の実装は、「R2FU」の使用により、任意の Unity コンポーネントに対して *ROS2* を介した通信を追加することができます。例えば、他の *ROS2* ノードから制御コマンドを受信し、*Ego* の現在の状態（環境内の位置など）を発行することができます。
 
-!!! tip "Simulation time"
-    If you want to use system time (*ROS2* time) instead of *Unity* time, use `ROS2TimeSource` instead of `UnityTimeSource` in the `SimulatorROS2Node` class.
+!!! ヒント "シミュレーション時間"
+    *Unity* の時間の代わりにシステム時間（*ROS2* 時間）を使用したい場合は、`SimulatorROS2Node` クラスで `UnityTimeSource` の代わりに `ROS2TimeSource` を使用してください。
 
-## Package structure
-`Ros2ForUnity` asset contains:
 
-- *Plugins* - dynamically loaded libraries for *Windows* and *Linux* (`*.dll` and `*.so` files).
-In addition to the necessary libraries, here are the libraries created as a result of generation the types of *ROS2* messages that are used in communication.
-- *Scripts* - scripts for using `R2FU`  in *Unity* - details [below](#scripts).
-- *Extension Scripts* - scripts for using `R2FU` in *AWSIM*, provide abstractions of a single main *Node* and simplify the interface  - details [below](#extension-scripts).
-These scripts are not in the library itself, but directly in the directory `Assets/AWSIM/Scripts/ROS/**`.
+## パッケージ構造
+`Ros2ForUnity` アセットには以下が含まれています：
 
-### Scripts
-- `ROS2UnityCore` - the principal class for handling *ROS2* nodes and executables.
-Spins and executes actions (e.g. clock, sensor publish triggers) in a dedicated thread.
-- `ROS2UnityComponent` - `ROS2UnityCore` adapted to work as a *Unity* component.
-- `ROS2Node` - a class representing a *ROS2* node, it should be constructed through `ROS2UnityComponent` class, which also handles spinning.
-- `ROS2ForUnity` - an internal class responsible for handling checking, proper initialization and shutdown of *ROS2* communication,
-- `ROS2ListenerExample` - an example class provided for testing of basic *ROS2->Unity* communication.
-- `ROS2TalkerExample` - an example class provided for testing of basic *Unity->ROS2* communication.
-- `ROS2PerformanceTest` - an example class provided for performance testing of *ROS2<->Unity* communication.
-- `Sensor` - an abstract base class for *ROS2*-enabled sensor.
-- `Transformations` - a set of transformation functions between coordinate systems of *Unity* and *ROS2*.
-- `PostInstall` - an internal class responsible for installing `R2FU` metadata files.
-- `Time` scripts - a set of classes that provide  the ability to use different time sources:
-    - `ROS2Clock` - *ROS2* clock class that for interfacing between a time source (*Unity* or *ROS2* system time) and *ROS2* messages.
-    - `ROS2TimeSource` - acquires *ROS2* time (system time by default).
-    - `UnityTimeSource` - acquires *Unity* time.
-    - `DotnetTimeSource` - acquires *Unity* `DateTime` based clock that has resolution increased using `Stopwatch`.
-    - `ITimeSource` - interface for general time extraction from any source.
-    - `TimeUtils` - utils for time conversion.
+- *プラグイン* - *Windows* と *Linux* 用の動的に読み込まれるライブラリ (`*.dll` および `*.so` ファイル)。
+必要なライブラリに加えて、*ROS2* メッセージの種類を生成した結果として作成されたライブラリも含まれています。これらは通信に使用されます。
+- *スクリプト* - `R2FU` を *Unity* で使用するためのスクリプト - 詳細は以下の [下記](#scripts) をご覧ください。
+- *拡張スクリプト* - `R2FU` を *CoRE.SIM* で使用するためのスクリプト。単一のメイン *Node* の抽象化とインタフェースの簡略化を提供します - 詳細は以下の [下記](#extension-scripts) をご覧ください。これらのスクリプトはライブラリ自体ではなく、直接ディレクトリ `Assets/CoRE.SIM/Scripts/ROS/**` にあります。
 
-### Extension Scripts
-Additionally, in order to adapt *AWSIM* to the use of `R2FU`, the following scripts are used:
+### スクリプト
+- `ROS2UnityCore` - *ROS2* ノードと実行可能なアクションの処理を行うための主要なクラス。専用スレッドで回転し、アクションを実行します（例：クロック、センサーのパブリッシュトリガーなど）。
+- `ROS2UnityComponent` - *Unity* コンポーネントとして動作するように適応された `ROS2UnityCore`。
+- `ROS2Node` - *ROS2* ノードを表すクラスで、`ROS2UnityComponent` クラスを介して構築する必要があり、回転もこのクラスで処理されます。
+- `ROS2ForUnity` - *ROS2* 通信の確認、適切な初期化、シャットダウンを処理する内部クラス。
+- `ROS2ListenerExample` - 基本的な *ROS2->Unity* 通信のテスト用に提供される例類クラス。
+- `ROS2TalkerExample` - 基本的な *Unity->ROS2* 通信のテスト用に提供される例類クラス。
+- `ROS2PerformanceTest` - *ROS2<->Unity* 通信のパフォーマンステスト用に提供される例類クラス。
+- `Sensor` - *ROS2* 対応のセンサーの抽象基本クラス。
+- `Transformations` - *Unity* と *ROS2* の座標系間の変換関数のセット。
+- `PostInstall` - `R2FU` メタデータファイルのインストールを処理する内部クラス。
+- `Time` スクリプト - 異なる時間源を使用できるようにする一連のクラス：
+    - `ROS2Clock` - *Unity* または *ROS2* システム時間と *ROS2* メッセージ間のインタフェースを提供する *ROS2* クロッククラス。
+    - `ROS2TimeSource` - *ROS2* 時間を取得します（デフォルトではシステム時間）。
+    - `UnityTimeSource` - *Unity* 時間を取得します。
+    - `DotnetTimeSource` - `Stopwatch` を使用して解像度を高めた *Unity* `DateTime` ベースのクロックを取得します。
+    - `ITimeSource` - 任意のソースからの一般的な時間の取得用のインタフェース。
+    - `TimeUtils` - 時間変換用のユーティリティ。
 
-- `SimulatorROS2Node` - it is a class that is directly responsible for *AWSIM<->ROS2* communication.
-- `ClockPublisher` - allows the publication of the simulation time from the clock running in the *SimulatorROS2Node*.
-It must be added as a component to the scene in order to publish the current time when the scene is run.
+拡張スクリプト
+さらに、*CoRE.SIM*を`R2FU`の使用に適応させるために、以下のスクリプトが使用されています。
+
+- `SimulatorROS2Node` - これは*CoRE.SIM<->ROS2*の通信に直接責任を持つクラスです。
+- `ClockPublisher` - *SimulatorROS2Node*で実行されているクロックからのシミュレーション時間の発行を可能にします。
+シーンにコンポーネントとして追加する必要があり、シーンが実行されると現在の時間を発行します。
 
     ![clock_publisher](clock_publisher.png)
 
-- `QoSSettings` - it is the equivalent of *ROS2* [*QoS*][qos], which allows to specify the *QoS* for subscribers and publishers in *AWSIM*.
-It uses the [`QualityOfServiceProfile`](https://github.com/RobotecAI/ros2cs/blob/develop/src/ros2cs/ros2cs_core/QualityOfServiceProfile.cs) implementation from the [Ros2cs](https://github.com/RobotecAI/ros2cs) library.
-- `ROS2Utility` - it is a class with utils that allow, for example, to convert positions in the *ROS2* coordinate system to the *AWSIM* coordinate system.
-- `DiagnosticsManager` - prints diagnostics for desired elements described in `*.yaml` config file.
+- `QoSSettings` - これは*CoRE.SIM*内のサブスクライバーとパブリッシャーの*QoS*を指定する*ROS2*の相当です。
+[Ros2cs](https://github.com/RobotecAI/ros2cs)ライブラリから[`QualityOfServiceProfile`](https://github.com/RobotecAI/ros2cs/blob/develop/src/ros2cs/ros2cs_core/QualityOfServiceProfile.cs)の実装を使用しています。
+- `ROS2Utility` - これは、例えば、*ROS2*の座標系から*CoRE.SIM*の座標系に位置を変換するためのユーティリティを持つクラスです。
+- `DiagnosticsManager` - `*.yaml`設定ファイルで説明されている要素に対する診断情報を出力します。
+
 
 ## Default message types
-The basic *ROS2* msgs types that are supported in *AWSIM* by default include:
+The basic *ROS2* msgs types that are supported in *CoRE.SIM* by default include:
 
 - [common_interfaces](https://index.ros.org/r/common_interfaces/github-ros2-common_interfaces/):
     - [`std_msgs`](https://index.ros.org/p/std_msgs/github-ros2-common_interfaces/#humble).
@@ -125,7 +118,7 @@ The basic *ROS2* msgs types that are supported in *AWSIM* by default include:
 In order for the message package to be used in *Unity*, its `*.dll` and `*.so` libraries must be generated using `R2FU`.
 
 !!! tip "Custom message"
-    If you want to generate a custom message to allow it to be used in *AWSIM* please read [this tutorial](../AddACustomROS2Message/).
+    If you want to generate a custom message to allow it to be used in *CoRE.SIM* please read [this tutorial](../AddACustomROS2Message/).
 
 ## Use of generated messages in *Unity*
 Each message type is composed of other types - which can also be a complex type.
@@ -174,7 +167,7 @@ Debug.Log($"StampSec: {header2.Stamp.sec} and Frame: {header2.Frame_id}");
     The **first letter** of each message field in *Unity* is **always** **uppercase** - even if the base *ROS2* message from which it is generated is lowercase.
 
 ### Filling a time
-In order to complete the time field of the [`Header`][header] message, we recommend the following methods in *AWSIM*:
+In order to complete the time field of the [`Header`][header] message, we recommend the following methods in *CoRE.SIM*:
 
 1. When the message has no [`Header`][header] but only the [`Time`][time] type:
 
@@ -231,7 +224,7 @@ Below is an example of `autoware_auto_vehicle_msgs.msg.VelocityReport` type mess
 using UnityEngine;
 using ROS2;
 
-namespace AWSIM
+namespace CoRE.SIM
 {
     public class VehicleReportRos2Publisher : MonoBehaviour
     {
@@ -306,7 +299,7 @@ Below is an example of `std_msgs.msg.Bool` type message subscription on `/vehicl
 using UnityEngine;
 using ROS2;
 
-namespace AWSIM
+namespace CoRE.SIM
 {
     public class VehicleStoppedSubscriber : MonoBehaviour
     {
@@ -332,5 +325,3 @@ namespace AWSIM
     }
 }
 ```
-<!-- TODO: Service Server -  -->
-<!-- TODO: Service Client - -->
