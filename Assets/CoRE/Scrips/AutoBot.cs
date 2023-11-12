@@ -100,21 +100,26 @@ public class AutoBot : MonoBehaviour
         // Robot State Pub
         geometry_msgs.msg.Pose msg_pose = new geometry_msgs.msg.Pose();
         msg_pose.Position.X = (float)(this.transform.position.x);
-        msg_pose.Position.Y = (float)(this.transform.position.y);
-        msg_pose.Position.Z = (float)(this.transform.position.z);
-        msg_pose.Orientation.X = (float)(this.transform.rotation.x);
-        msg_pose.Orientation.Y = (float)(this.transform.rotation.y);
-        msg_pose.Orientation.W = (float)(this.transform.rotation.w);
-        msg_pose.Orientation.Z = (float)(this.transform.rotation.z);
+        msg_pose.Position.Y = (float)(this.transform.position.z);
+        msg_pose.Position.Z = (float)(this.transform.position.y);
+
+        Quaternion unityQuat = new Quaternion(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z, this.transform.rotation.w);
+        Quaternion rosQuat = Quaternion.Euler(-90, 0, 0) * unityQuat;
+        msg_pose.Orientation.X = (float)(rosQuat.x);
+        msg_pose.Orientation.Y = (float)(rosQuat.z);
+        msg_pose.Orientation.W = (float)(rosQuat.w);
+        msg_pose.Orientation.Z = (float)(rosQuat.y);
         robo_pose_pub.Publish(msg_pose);
 
         msg_pose.Position.X = (float)(gun_gameobj.transform.localPosition.x);
-        msg_pose.Position.Y = (float)(gun_gameobj.transform.localPosition.y);
-        msg_pose.Position.Z = (float)(gun_gameobj.transform.localPosition.z);
-        msg_pose.Orientation.X = (float)(gun_gameobj.transform.localRotation.x);
-        msg_pose.Orientation.Y = (float)(gun_gameobj.transform.localRotation.y);
-        msg_pose.Orientation.W = (float)(gun_gameobj.transform.localRotation.w);
-        msg_pose.Orientation.Z = (float)(gun_gameobj.transform.localRotation.z);
+        msg_pose.Position.Y = (float)(gun_gameobj.transform.localPosition.z);
+        msg_pose.Position.Z = (float)(gun_gameobj.transform.localPosition.y);
+        unityQuat = new Quaternion(gun_gameobj.transform.localRotation.x, gun_gameobj.transform.localRotation.y, gun_gameobj.transform.localRotation.z, gun_gameobj.transform.localRotation.w);
+        rosQuat = Quaternion.Euler(-90, 0, 0) * unityQuat;
+        msg_pose.Orientation.X = (float)(rosQuat.x);
+        msg_pose.Orientation.Y = (float)(rosQuat.z);
+        msg_pose.Orientation.W = (float)(rosQuat.w);
+        msg_pose.Orientation.Z = (float)(rosQuat.y);
         gun_pose_pub.Publish(msg_pose);
       }
     }  

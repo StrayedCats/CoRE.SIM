@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!135 &7042287213409363265
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848065056687729657}
+  m_Material: {fileID: 13400000, guid: 3c021dbe03fa021099a375d2d196d4d6, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0035
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4991118693400327232
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16,19 +29,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!135 &7042287213409363265
-SphereCollider:
+--- !u!114 &6486826707893129627
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3848065056687729657}
-  m_Material: {fileID: 13400000, guid: 3c021dbe03fa021099a375d2d196d4d6, type: 2}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 7535681071301648070}
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.0035
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61cf0f5dedacb9df99847911afe8a965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 5
 --- !u!1001 &7229816528552387479
 PrefabInstance:
   m_ObjectHideFlags: 0
