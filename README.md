@@ -1,5 +1,8 @@
 # CoRE.SIM
 
+![CoRE SIM](https://github.com/StrayedCats/CoRE.SIM/assets/53041471/f89f852a-1fb0-43b1-b4c5-8b4adeffdad7)
+
+
 CoRE.SIM is the best scene simulator for CoRE-1. CoRE.SIM is a project that forked from tier4/AWSIM.
 
 ## Features
