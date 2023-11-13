@@ -12,12 +12,21 @@ public class AutoBot : MonoBehaviour
 
     public GameObject red_ball;
     public GameObject green_ball;
+    public GameObject enemy_robot_1;
+
+    public GameObject base_target_1;
+    public GameObject base_target_2;
+    public GameObject base_target_3;
+
+    public GameObject realsense;
+    public GameObject rs_color;
+
+
     private ROS2UnityComponent ros2Unity;
     private ROS2Node ros2Node;
 
     private ISubscription<geometry_msgs.msg.Twist> control_sub;
-    private IPublisher<geometry_msgs.msg.Pose> robo_pose_pub;
-    private IPublisher<geometry_msgs.msg.Pose> gun_pose_pub;
+    private IPublisher<tf2_msgs.msg.TFMessage> tf_pub;
     private geometry_msgs.msg.Twist sub_msg;
     private double target_gun;
 
@@ -36,6 +45,29 @@ public class AutoBot : MonoBehaviour
 
     }
 
+    geometry_msgs.msg.Transform globalObjTramsformToROS2(GameObject obj){
+      var transform_rt = new geometry_msgs.msg.Transform();
+      transform_rt.Translation.X = (float)(obj.transform.position.x);
+      transform_rt.Translation.Y = (float)(obj.transform.position.z);
+      transform_rt.Translation.Z = (float)(obj.transform.position.y);
+      transform_rt.Rotation.X = (float)(obj.transform.rotation.x);
+      transform_rt.Rotation.Y = (float)(obj.transform.rotation.z);
+      transform_rt.Rotation.Z = (float)(obj.transform.rotation.w);
+      transform_rt.Rotation.W = (float)(obj.transform.rotation.y);
+      return transform_rt;
+    }
+    geometry_msgs.msg.Transform localObjTramsformToROS2(GameObject obj){
+      var transform_rt = new geometry_msgs.msg.Transform();
+      transform_rt.Translation.X = (float)(obj.transform.localPosition.x);
+      transform_rt.Translation.Y = (float)(obj.transform.localPosition.z);
+      transform_rt.Translation.Z = (float)(obj.transform.localPosition.y);
+      transform_rt.Rotation.X = (float)(obj.transform.localRotation.x);
+      transform_rt.Rotation.Y = (float)(obj.transform.localRotation.z);
+      transform_rt.Rotation.Z = (float)(obj.transform.localRotation.w);
+      transform_rt.Rotation.W = (float)(obj.transform.localRotation.y);
+      return transform_rt;
+    }
+
     void FixedUpdate()
     {
       if(ros2Unity.Ok())
@@ -48,8 +80,7 @@ public class AutoBot : MonoBehaviour
             "control/cmd_vel", msg => {
               sub_msg = msg;
             });
-          robo_pose_pub = ros2Node.CreatePublisher<geometry_msgs.msg.Pose>("pose/robot");
-          gun_pose_pub = ros2Node.CreatePublisher<geometry_msgs.msg.Pose>("pose/gun");
+          tf_pub = ros2Node.CreatePublisher<tf2_msgs.msg.TFMessage>("/tf");
         }
 
         // Auto Robot Yaw Control
@@ -98,29 +129,57 @@ public class AutoBot : MonoBehaviour
 
 
         // Robot State Pub
-        geometry_msgs.msg.Pose msg_pose = new geometry_msgs.msg.Pose();
-        msg_pose.Position.X = (float)(this.transform.position.x);
-        msg_pose.Position.Y = (float)(this.transform.position.z);
-        msg_pose.Position.Z = (float)(this.transform.position.y);
+        var pose_robot = new geometry_msgs.msg.TransformStamped();
+        pose_robot.Header.Frame_id = "map";
+        pose_robot.Child_frame_id = "base_link";
+        pose_robot.Transform = globalObjTramsformToROS2(this.gameObject);
 
-        Quaternion unityQuat = new Quaternion(this.transform.rotation.x, this.transform.rotation.y, this.transform.rotation.z, this.transform.rotation.w);
-        Quaternion rosQuat = Quaternion.Euler(-90, 0, 0) * unityQuat;
-        msg_pose.Orientation.X = (float)(rosQuat.x);
-        msg_pose.Orientation.Y = (float)(rosQuat.z);
-        msg_pose.Orientation.W = (float)(rosQuat.w);
-        msg_pose.Orientation.Z = (float)(rosQuat.y);
-        robo_pose_pub.Publish(msg_pose);
+        var gun_robot = new geometry_msgs.msg.TransformStamped();
+        gun_robot.Header.Frame_id = "base_link";
+        gun_robot.Child_frame_id = "gun";
+        gun_robot.Transform = localObjTramsformToROS2(gun_gameobj.gameObject);
 
-        msg_pose.Position.X = (float)(gun_gameobj.transform.localPosition.x);
-        msg_pose.Position.Y = (float)(gun_gameobj.transform.localPosition.z);
-        msg_pose.Position.Z = (float)(gun_gameobj.transform.localPosition.y);
-        unityQuat = new Quaternion(gun_gameobj.transform.localRotation.x, gun_gameobj.transform.localRotation.y, gun_gameobj.transform.localRotation.z, gun_gameobj.transform.localRotation.w);
-        rosQuat = Quaternion.Euler(-90, 0, 0) * unityQuat;
-        msg_pose.Orientation.X = (float)(rosQuat.x);
-        msg_pose.Orientation.Y = (float)(rosQuat.z);
-        msg_pose.Orientation.W = (float)(rosQuat.w);
-        msg_pose.Orientation.Z = (float)(rosQuat.y);
-        gun_pose_pub.Publish(msg_pose);
+        var pose_rs = new geometry_msgs.msg.TransformStamped();
+        pose_rs.Header.Frame_id = "base_link";
+        pose_rs.Child_frame_id = "camera_link";
+        pose_rs.Transform = localObjTramsformToROS2(realsense.gameObject);
+
+        var pose_rs_c = new geometry_msgs.msg.TransformStamped();
+        pose_rs_c.Header.Frame_id = "camera_link";
+        pose_rs_c.Child_frame_id = "camera_color_frame";
+        pose_rs_c.Transform = localObjTramsformToROS2(rs_color.gameObject);
+
+
+        // demo
+        var pose_enemy_robot_1 = new geometry_msgs.msg.TransformStamped();
+        pose_enemy_robot_1.Header.Frame_id = "map";
+        pose_enemy_robot_1.Child_frame_id = "enemy_robot_1_link";
+        pose_enemy_robot_1.Transform = globalObjTramsformToROS2(enemy_robot_1);
+
+        var pose_base_target_1 = new geometry_msgs.msg.TransformStamped();
+        pose_base_target_1.Header.Frame_id = "map";
+        pose_base_target_1.Child_frame_id = "base_target_1_link";
+        pose_base_target_1.Transform = globalObjTramsformToROS2(base_target_1);
+
+        var pose_base_target_2 = new geometry_msgs.msg.TransformStamped();
+        pose_base_target_2.Header.Frame_id = "map";
+        pose_base_target_2.Child_frame_id = "base_target_2_link";
+        pose_base_target_2.Transform = globalObjTramsformToROS2(base_target_2);
+
+        var pose_base_target_3 = new geometry_msgs.msg.TransformStamped();
+        pose_base_target_3.Header.Frame_id = "map";
+        pose_base_target_3.Child_frame_id = "base_target_3_link";
+        pose_base_target_3.Transform = globalObjTramsformToROS2(base_target_3);
+
+        // demo end
+
+        var tf = new tf2_msgs.msg.TFMessage();
+        tf.Transforms = new geometry_msgs.msg.TransformStamped[8]{
+          pose_robot,gun_robot,pose_rs,pose_rs_c,
+          pose_enemy_robot_1,
+          pose_base_target_1,pose_base_target_2,pose_base_target_3
+          };
+        tf_pub.Publish(tf);
       }
     }  
 }
