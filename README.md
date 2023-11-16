@@ -2,32 +2,31 @@
 
 ![CoRE SIM](https://github.com/StrayedCats/CoRE.SIM/assets/53041471/f89f852a-1fb0-43b1-b4c5-8b4adeffdad7)
 
+CoRE.SIMはCoRE-1のための最高のシーンシミュレーターです。CoRE.SIMはtier4/AWSIMからフォークしたプロジェクトです。
 
-CoRE.SIM is the best scene simulator for CoRE-1. CoRE.SIM is a project that forked from tier4/AWSIM.
+## 特徴
 
-## Features
+- シミュレーターコンポーネントが含まれています（車両、センサー、環境、ROS2など）。
+- Ubuntu 22.04のサポート
+- ROS2ネイティブ通信
+- オープンソースソフトウェア
+- Unityゲームエンジンで作成
 
-- Simulator components included (Vehicle, Sensor, Environment, ROS2, etc.)
-- Support for Ubuntu 22.04
-- ROS2 native communication
-- Open source software
-- Made with Unity Game Engine
+## チュートリアル
 
-## Tutorial
+まず、チュートリアルを試してみてください！  
+[CoRE.SIMドキュメント - クイックスタートデモ](https://strayedcats.github.io/CoRE.SIM/GettingStarted/QuickStartDemo/)
 
-First, try the tutorial !  
-[CoRE.SIM Document - Quick Start Demo](https://strayedcats.github.io/CoRE.SIM/GettingStarted/QuickStartDemo/)
-
-## Documentation
+## ドキュメンテーション
 
 https://strayedcats.github.io/CoRE.SIM/
 
-## License
+## ライセンス
 
-CoRE.SIM & AWSIM License
-Applies to `StrayedCats/CoRE.SIM` repositories and all content contained in the [Releases](https://github.com/StrayedCats/CoRE.SIM/releases).
+CoRE.SIM & AWSIM ライセンス
+`StrayedCats/CoRE.SIM` リポジトリおよび[Releases](https://github.com/StrayedCats/CoRE.SIM/releases)に含まれるすべてのコンテンツに適用されます。
 
-- code : Apache 2.0
-- assets : CC BY-NC
+- コード：Apache 2.0
+- アセット：CC BY-NC
 
-See also [LICENSE](./LICENSE)
+また、[LICENSE](./LICENSE)も参照してください。
