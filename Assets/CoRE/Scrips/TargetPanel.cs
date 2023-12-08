@@ -10,10 +10,8 @@ public class TargetPanel : MonoBehaviour
     public Material red_material;
     public Material blue_material;
 
-
     private int counter;
     private int counter2;
-
 
     void Start()
     {  
@@ -44,7 +42,6 @@ public class TargetPanel : MonoBehaviour
         }
         counter -= 1;
     }
-
 
     void OnCollisionEnter(Collision collision){
         if(collision.gameObject.layer == 8){

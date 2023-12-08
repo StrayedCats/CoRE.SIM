@@ -7,11 +7,6 @@ using UnityEngine;
 public class BotAttacker : MonoBehaviour
 {
     public GameObject disk;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
     
     bool DiskAtck(double angle){
         var vec = new Vector3(0f,0f,0f);
@@ -24,7 +19,10 @@ public class BotAttacker : MonoBehaviour
                 Debug.DrawRay(this.transform.position, vec * hit.distance, Color.green, 0.1f);
                 var obj = Instantiate(disk, this.transform.position, Quaternion.Euler(this.transform.parent.eulerAngles.x, this.transform.parent.eulerAngles.y, 0));
                 Rigidbody rb = obj.GetComponent<Rigidbody>();
-                rb.AddForce(vec * 100);
+                float forceRandomness = UnityEngine.Random.Range(0.8f, 1.2f);
+                Vector3 torqueRandomness = new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f));
+                rb.AddForce(vec * 100 * forceRandomness);
+                rb.AddTorque(torqueRandomness * 20f);
                 return true;
             }else{
                 Debug.DrawRay(this.transform.position, vec * hit.distance, Color.blue, 0.1f);
