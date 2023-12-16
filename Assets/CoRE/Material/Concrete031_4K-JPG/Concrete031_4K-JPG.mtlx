@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<materialx version="1.38" fileprefix="./">
+  <standard_surface name="Concrete031_4K_JPG_StandardSurface" ypos="-1.879310" type="surfaceshader" xpos="6.159420">
+    <input value="0" name="specular" type="float" />
+    <input value="1" name="coat" type="float" />
+    <input value="1, 1, 1" name="coat_color" type="color3" />
+    <input value="1" name="base" type="float" />
+    <input name="base_color" type="color3" nodename="Concrete031_4K_JPG_Color" />
+    <input name="normal" type="vector3" nodename="normalmap" />
+    <input name="coat_normal" type="vector3" nodename="normalmap" />
+    <input name="specular_roughness" type="float" nodename="Concrete031_4K_JPG_Roughness" />
+    <input name="coat_roughness" type="float" nodename="Concrete031_4K_JPG_Roughness" />
+  </standard_surface>
+  <surfacematerial name="Concrete031_4K_JPG" ypos="0.000000" type="material" xpos="8.695652">
+    <input name="surfaceshader" type="surfaceshader" nodename="Concrete031_4K_JPG_StandardSurface" />
+    <input name="displacementshader" type="displacementshader" nodename="displacement" />
+  </surfacematerial>
+  <tiledimage name="Concrete031_4K_JPG_Color" ypos="-3.103448" type="color3" xpos="3.623188">
+    <input colorspace="srgb_texture" value="Concrete031_4K-JPG_Color.jpg" name="file" type="filename" />
+    <input value="1.0, 1.0" name="uvtiling" type="vector2" />
+  </tiledimage>
+  <tiledimage name="Concrete031_4K_JPG_Displacement" ypos="5.163793" type="float" xpos="3.623188">
+    <input value="Concrete031_4K-JPG_Displacement.jpg" name="file" type="filename" />
+    <input value="1.0, 1.0" name="uvtiling" type="vector2" />
+  </tiledimage>
+  <displacement name="displacement" ypos="1.879310" type="displacementshader" xpos="6.159420">
+    <input name="displacement" type="float" nodename="Concrete031_4K_JPG_Displacement" />
+    <input value="1.0" name="scale" type="float" />
+  </displacement>
+  <tiledimage name="Concrete031_4K_JPG_NormalGL" ypos="0.879310" type="vector3" xpos="1.086957">
+    <input value="Concrete031_4K-JPG_NormalGL.jpg" name="file" type="filename" />
+    <input value="1.0, 1.0" name="uvtiling" type="vector2" />
+  </tiledimage>
+  <normalmap name="normalmap" ypos="3.586207" type="vector3" xpos="3.623188">
+    <input name="in" type="vector3" nodename="Concrete031_4K_JPG_NormalGL" />
+    <input value="1.0" name="scale" type="float" />
+  </normalmap>
+  <tiledimage name="Concrete031_4K_JPG_Roughness" ypos="-0.413793" type="float" xpos="3.623188">
+    <input value="Concrete031_4K-JPG_Roughness.jpg" name="file" type="filename" />
+    <input value="1.0, 1.0" name="uvtiling" type="vector2" />
+  </tiledimage>
+</materialx>
