@@ -26,7 +26,7 @@ public class TargetBotController : MonoBehaviour
         initPos = this.transform.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (agent.isShow) { return; }
 

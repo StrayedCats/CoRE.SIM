@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class SettingMenuAgent : MonoBehaviour
 {
     public Volume blackFilterObject;
-    public Image[] settingImage;
+    public GameObject canvas;
     public bool isShow;
+    public HideGameUI hideGameUI;
 
     public TargetBotController tbc;
     public ROS2.AutoBot autobot;
@@ -21,13 +22,8 @@ public class SettingMenuAgent : MonoBehaviour
     {
         isShow = !isShow;
         blackFilterObject.enabled = isShow;
-        foreach (var item in settingImage)
-        {
-            if (item != null)
-            {
-                item.enabled = isShow;
-            }
-        }
+        canvas.SetActive(isShow);
+        hideGameUI.hideImage(isShow);
     }
 
     void Update()

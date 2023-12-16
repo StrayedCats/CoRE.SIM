@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using AWSIM.Lanelet;
+using TMPro;
 using UnityEngine;
 
 namespace ROS2
 {
     public class AutoBot : MonoBehaviour
     {
+        public string robot_namespace;
         public GameObject gun_gameobj;
         public GameObject gun_target_gameobj;
 
@@ -14,17 +16,18 @@ namespace ROS2
         public GameObject green_ball;
         public GameObject realsense;
         public GameObject rs_color;
+        public TextMeshProUGUI reamining_bullets;
+        public TextMeshProUGUI default_bullets;
 
         private ROS2UnityComponent ros2Unity;
         private ROS2Node ros2Node;
 
-        private ISubscription<geometry_msgs.msg.Twist> robo_control_sub;
-        private ISubscription<std_msgs.msg.Float32> gun_contorl_sub;
         private IPublisher<tf2_msgs.msg.TFMessage> tf_pub;
         private geometry_msgs.msg.Twist sub_msg;
         private std_msgs.msg.Float32 sub_gun_msg;
         private double target_gun;
 
+        private int bullet_count;
         public double motor_noise_percent;
 
         public static ITimeSource TimeSource { get; private set; } = new UnityTimeSource();
@@ -36,30 +39,33 @@ namespace ROS2
             sub_msg = new geometry_msgs.msg.Twist();
             sub_gun_msg = new std_msgs.msg.Float32();
             target_gun = 75f;
+            bullet_count = 40;
+            reamining_bullets.SetText(bullet_count.ToString());
+            default_bullets.SetText("/" + bullet_count.ToString());
         }
 
         geometry_msgs.msg.Transform globalObjTramsformToROS2(GameObject obj)
         {
             var transform_rt = new geometry_msgs.msg.Transform();
-            transform_rt.Translation.X = (float)(obj.transform.position.x);
-            transform_rt.Translation.Y = (float)(obj.transform.position.z);
-            transform_rt.Translation.Z = (float)(obj.transform.position.y);
-            transform_rt.Rotation.X = (float)(obj.transform.rotation.x);
-            transform_rt.Rotation.Y = (float)(obj.transform.rotation.z);
-            transform_rt.Rotation.Z = (float)(obj.transform.rotation.w);
-            transform_rt.Rotation.W = (float)(obj.transform.rotation.y);
+            transform_rt.Translation.X = obj.transform.position.x;
+            transform_rt.Translation.Y = obj.transform.position.z;
+            transform_rt.Translation.Z = obj.transform.position.y;
+            transform_rt.Rotation.X = obj.transform.rotation.x;
+            transform_rt.Rotation.Y = obj.transform.rotation.z;
+            transform_rt.Rotation.Z = obj.transform.rotation.w;
+            transform_rt.Rotation.W = obj.transform.rotation.y;
             return transform_rt;
         }
         geometry_msgs.msg.Transform localObjTramsformToROS2(GameObject obj)
         {
             var transform_rt = new geometry_msgs.msg.Transform();
-            transform_rt.Translation.X = (float)(obj.transform.localPosition.x);
-            transform_rt.Translation.Y = (float)(obj.transform.localPosition.z);
-            transform_rt.Translation.Z = (float)(obj.transform.localPosition.y);
-            transform_rt.Rotation.X = (float)(obj.transform.localRotation.x);
-            transform_rt.Rotation.Y = (float)(obj.transform.localRotation.z);
-            transform_rt.Rotation.Z = (float)(obj.transform.localRotation.w);
-            transform_rt.Rotation.W = (float)(obj.transform.localRotation.y);
+            transform_rt.Translation.X = obj.transform.localPosition.x;
+            transform_rt.Translation.Y = obj.transform.localPosition.z;
+            transform_rt.Translation.Z = obj.transform.localPosition.y;
+            transform_rt.Rotation.X = obj.transform.localRotation.x;
+            transform_rt.Rotation.Y = obj.transform.localRotation.z;
+            transform_rt.Rotation.Z = obj.transform.localRotation.w;
+            transform_rt.Rotation.W = obj.transform.localRotation.y;
             return transform_rt;
         }
         static public builtin_interfaces.msg.Time GetCurrentRosTime()
@@ -76,15 +82,15 @@ namespace ROS2
                 // topic & node init
                 if (ros2Node == null)
                 {
-                    ros2Node = ros2Unity.CreateNode("CoREdotSim");
+                    ros2Node = ros2Unity.CreateNode("CoREdotSim_" + robot_namespace);
                     ros2Clock = new ROS2Clock(TimeSource);
-                    robo_control_sub = ros2Node.CreateSubscription<geometry_msgs.msg.Twist>(
-                      "control/cmd_vel", msg =>{
+                    ros2Node.CreateSubscription<geometry_msgs.msg.Twist>(
+                      robot_namespace + "/control/cmd_vel", msg =>{
                           sub_msg = msg;
                       });
 
-                    gun_contorl_sub = ros2Node.CreateSubscription<std_msgs.msg.Float32>(
-                        "control/gunshot", msg => {
+                    ros2Node.CreateSubscription<std_msgs.msg.Float32>(
+                        robot_namespace + "/control/gunshot", msg => {
                             sub_gun_msg = msg;
                         });
                     tf_pub = ros2Node.CreatePublisher<tf2_msgs.msg.TFMessage>("/tf");
@@ -121,7 +127,7 @@ namespace ROS2
 
 
                 // Auto Robot Shot Control
-                if (Mathf.Abs((float)sub_gun_msg.Data) >= 0.1 && Mathf.Abs((float)sub_gun_msg.Data) <= 10)
+                if (Mathf.Abs((float)sub_gun_msg.Data) >= 0.1 && Mathf.Abs((float)sub_gun_msg.Data) <= 10 && bullet_count > 0)
                 {
                     float forceRandomness = Random.Range(0.85f, 1.15f);
                     Vector3 torqueRandomness = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
@@ -141,31 +147,34 @@ namespace ROS2
                     rb.AddTorque(torqueRandomness * 10f);
 
                     sub_gun_msg.Data = 0;
+
+                    bullet_count -= 1;
+                    reamining_bullets.SetText(bullet_count.ToString());
                 }
 
 
                 // Robot State Pub
                 var pose_robot = new geometry_msgs.msg.TransformStamped();
                 pose_robot.Header.Frame_id = "map";
-                pose_robot.Child_frame_id = "base_link";
+                pose_robot.Child_frame_id = robot_namespace + "_base_link";
                 pose_robot.Transform = globalObjTramsformToROS2(this.gameObject);
                 pose_robot.Header.Stamp = GetCurrentRosTime();
 
                 var gun_robot = new geometry_msgs.msg.TransformStamped();
-                gun_robot.Header.Frame_id = "base_link";
-                gun_robot.Child_frame_id = "gun";
+                gun_robot.Header.Frame_id = robot_namespace + "_base_link";
+                gun_robot.Child_frame_id = robot_namespace + "_gun";
                 gun_robot.Transform = localObjTramsformToROS2(gun_gameobj.gameObject);
                 gun_robot.Header.Stamp = GetCurrentRosTime();
 
                 var pose_rs = new geometry_msgs.msg.TransformStamped();
-                pose_rs.Header.Frame_id = "base_link";
-                pose_rs.Child_frame_id = "camera_link";
+                pose_rs.Header.Frame_id = robot_namespace + "_base_link";
+                pose_rs.Child_frame_id = robot_namespace + "_camera_link";
                 pose_rs.Transform = localObjTramsformToROS2(realsense.gameObject);
                 pose_rs.Header.Stamp = GetCurrentRosTime();
 
                 var pose_rs_c = new geometry_msgs.msg.TransformStamped();
-                pose_rs_c.Header.Frame_id = "camera_link";
-                pose_rs_c.Child_frame_id = "camera_color_frame";
+                pose_rs_c.Header.Frame_id = robot_namespace + "_camera_link";
+                pose_rs_c.Child_frame_id = robot_namespace + "_camera_color_frame";
                 pose_rs_c.Transform = localObjTramsformToROS2(rs_color.gameObject);
                 pose_rs_c.Header.Stamp = GetCurrentRosTime();
 
@@ -185,6 +194,8 @@ namespace ROS2
             gun_gameobj.transform.localRotation = new Quaternion(0.60876137f, 0, 0, 0.793353379f);
             sub_msg = new geometry_msgs.msg.Twist();
             sub_gun_msg = new std_msgs.msg.Float32();
+            bullet_count = 40;
+            reamining_bullets.SetText(bullet_count.ToString());
         }
     }
 } // namespace ROS2
