@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 189570185359741012}
   - component: {fileID: 2841433569684215731}
   - component: {fileID: 5186949447383889006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,8 +107,8 @@ GameObject:
   - component: {fileID: 7681853084804847554}
   - component: {fileID: 3296411475198232087}
   - component: {fileID: 825979496092862452}
-  m_Layer: 0
-  m_Name: disk
+  m_Layer: 10
+  m_Name: blue_disk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
