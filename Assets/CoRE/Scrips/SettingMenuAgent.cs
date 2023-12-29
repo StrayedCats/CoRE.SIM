@@ -11,7 +11,8 @@ public class SettingMenuAgent : MonoBehaviour
     public bool isShow;
     public HideGameUI hideGameUI;
 
-    public TargetBotController tbc;
+    public BlueAttackerBotControl tbc1;
+    public RedAttackerBotControl tbc2;
     public ROS2.AutoBot autobot;
 
     void Start()
@@ -49,7 +50,8 @@ public class SettingMenuAgent : MonoBehaviour
 
     public void OnClickReset()
     {
-        tbc.resetPos();
+        tbc1.resetPos();
+        tbc2.resetPos();
         autobot.ResetAutoBot();
 
         toglleShow();
