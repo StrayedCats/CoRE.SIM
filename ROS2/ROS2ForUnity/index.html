@@ -1,0 +1,1236 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ROS2TopicList/">
+      
+      
+        <link rel="next" href="../../DeveloperGuide/Documentation/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.3">
+    
+    
+      
+        <title>ROS2 For Unity - CoRE.SIM document</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros2-for-unity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CoRE.SIM document" class="md-header__button md-logo" aria-label="CoRE.SIM document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CoRE.SIM document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ROS2 For Unity
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/StrayedCats/CoRE.SIM" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CoRE.SIM document" class="md-nav__button md-logo" aria-label="CoRE.SIM document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CoRE.SIM document
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/StrayedCats/CoRE.SIM" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ホーム
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    はじめに
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            はじめに
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GettingStarted/QuickStartDemo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    デモ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GettingStarted/SetupUnityProject/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unityを使ってセットアップ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ROS2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ROS2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ROS2TopicList/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ROS2 トピックリスト
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    ROS2 For Unity
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    ROS2 For Unity
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      パッケージ構造
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージ構造">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      スクリプト
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-message-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default message types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-generated-messages-in-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of generated messages in Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use of generated messages in Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-and-filling-in-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing and filling in message fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filling-a-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filling a time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-message-with-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a message with array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish-on-the-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publish on the topic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribe-to-the-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscribe to the topic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    開発者ガイド
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            開発者ガイド
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DeveloperGuide/Documentation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ドキュメント
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DeveloperGuide/License/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ライセンス
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      前提条件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concept
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      パッケージ構造
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パッケージ構造">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      スクリプト
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-message-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default message types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-of-generated-messages-in-unity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use of generated messages in Unity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Use of generated messages in Unity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-an-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-and-filling-in-message-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing and filling in message fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filling-a-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filling a time
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-message-with-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a message with array
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish-on-the-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publish on the topic
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribe-to-the-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscribe to the topic
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<!-- reusable hyperlinks -->
+<h1 id="ros2-for-unity">ROS2 For Unity</h1>
+<p><a href="https://github.com/RobotecAI/ros2-for-unity"><em>Ros2ForUnity</em></a>（<code>R2FU</code>）モジュールは、<em>Unity</em>と<em>ROS2</em>エコシステムを効果的に接続するコミュニケーションソリューションで、強力な統合を維持します。
+他のソリューションとは異なり、通信をブリッジングに依存せず、むしろ<em>ROS2</em>ミドルウェアスタック（特に<code>rcl</code>レイヤーおよびそれ以下）を利用して、<em>Unity</em>シミュレーション内で<em>ROS2</em>ノードを含めることができます。</p>
+<p><code>R2FU</code>は多くの理由で<em>CoRE.SIM</em>で使用されています。
+まず第一に、<em>Unity</em>と<em>ROS2</em>間の高性能な統合を提供し、ブリッジングソリューションと比較してスループットが向上し、レイテンシが低くなります。
+<em>Unity</em>内のシミュレーションエンティティに対して実際の<em>ROS2</em>機能を提供し、標準およびカスタムメッセージをサポートし、<em>Unity</em>アセットとしてラップされた便利な抽象化とツールを含んでいます。
+詳細な説明については、<a href="https://github.com/RobotecAI/ros2-for-unity/blob/master/README.md"><em>README</em></a>をご覧ください。</p>
+<h2 id="_1">前提条件</h2>
+<p>このアセットは、2つの異なるモードで準備できます：</p>
+<ul>
+<li><em>スタンドアロンモード</em> - このモードでは、対象のマシンに <em>ROS2</em> のインストールが必要ありません。例：<em>Unity</em> シミュレーションサーバー。
+必要なすべての依存関係がインストールされ、完全な <em>Unity</em> プラグインセットとして使用できます。</li>
+<li><em>オーバーレイモード</em> - このモードでは、対象のマシンに <em>ROS2</em> のインストールが必要です。
+アセットライブラリと生成されたメッセージのみがインストールされるため、<em>ROS2</em> のインスタンスをソース化する必要があります。</li>
+</ul>
+<p>デフォルトでは、<em>CoRE.SIM</em> のアセット <code>R2FU</code> は <em>スタンドアロンモード</em> で準備されています。
+これにより、<em>ROS2</em> のインスタンスをソース化する必要がなく、<em>Unity</em> エディタを実行するだけで済みます。</p>
+<div class="admonition 質問">
+<p class="admonition-title">トピックが表示されない</p>
+<p>エラーは表示されませんが、<code>R2FU</code> によって発行されたトピックが表示されません。</p>
+<ul>
+<li>DDS（<a href="../../../GettingStarted/QuickStartDemo/#localhost-settings">localhostの設定</a>）の設定が正しいことを確認してください。</li>
+<li>時々 <em>ROS2</em> デーモンはネットワークインターフェースの変更や <em>ROS2</em> バージョンの変更時に中断することがあります。</li>
+</ul>
+<p>強制的に停止してみてください（<code>pkill -9 ros2_daemon</code>） そして再起動してください（<code>ros2 daemon start</code>）。</p>
+</div>
+<h2 id="concept">Concept</h2>
+<p>「CoRE.SIM」内で「R2FU」の概念を説明する際、以下の点を区別します：</p>
+<ul>
+<li><em>ROS2Node</em> - これは <em>ROS2</em> のノードに相当し、独自の名前を持ち、任意の数のサブスクライバ、パブリッシャ、サービスサーバ、およびサービスクライアントを持つことができます。現在の <em>CoRE.SIM</em> の実装では、メインノードは1つしかありません。</li>
+<li><em>ROS2Clock</em> - これは選択したソースを使用してシミュレーション時間を生成する責任があります。</li>
+<li><em>SimulatorROS2Node</em> - これは <em>CoRE.SIM&lt;-&gt;ROS2</em> の通信に直接責任を負うクラスで、<em>ROS2Node</em> および <em>ROS2Clock</em> の各1つのインスタンスを含み、<em>ROS2</em> でメインの <em>CoRE.SIM</em> ノードを作成し、選択したソースから時間をシミュレーションします（現在は <a href="https://docs.unity3d.com/ScriptReference/Time.html">UnityTimeSource</a> が使用されています）。これは <em>Unity</em> シーンを実行する瞬間に <a href="https://docs.unity3d.com/ScriptReference/RuntimeInitializeOnLoadMethodAttribute.html"><code>RuntimeInitializeOnLoadMethod</code></a> マークを使用して初期化されます。</li>
+<li><em>Publisher</em> - これは <em>ROS2</em> のパブリッシャに相当し、選択したメッセージのタイプを発行できる単一のトピックを使用し、選択した <a href="https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html"><em>QoS</em></a> プロファイルを持っています。<em>CoRE.SIM</em> 内の各パブリッシャは、<em>SimulatorROS2Node</em> クラスの <em>ROS2Node</em> オブジェクト内で作成されます。</li>
+<li><em>Subscriber</em> - これは <em>ROS2</em> のサブスクライバに相当し、選択したメッセージのタイプをサブスクライブするための単一のトピックを使用し、選択した <a href="https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html"><em>QoS</em></a> プロファイルを持っています。<em>CoRE.SIM</em> 内の各サブスクライバは、<em>SimulatorROS2Node</em> クラスの <em>ROS2Node</em> オブジェクト内で作成されます。</li>
+</ul>
+<p>「SimulatorROS2Node」の実装は、「R2FU」の使用により、任意の Unity コンポーネントに対して <em>ROS2</em> を介した通信を追加することができます。例えば、他の <em>ROS2</em> ノードから制御コマンドを受信し、<em>Ego</em> の現在の状態（環境内の位置など）を発行することができます。</p>
+<div class="admonition ヒント">
+<p class="admonition-title">シミュレーション時間</p>
+<p><em>Unity</em> の時間の代わりにシステム時間（<em>ROS2</em> 時間）を使用したい場合は、<code>SimulatorROS2Node</code> クラスで <code>UnityTimeSource</code> の代わりに <code>ROS2TimeSource</code> を使用してください。</p>
+</div>
+<h2 id="_2">パッケージ構造</h2>
+<p><code>Ros2ForUnity</code> アセットには以下が含まれています：</p>
+<ul>
+<li><em>プラグイン</em> - <em>Windows</em> と <em>Linux</em> 用の動的に読み込まれるライブラリ (<code>*.dll</code> および <code>*.so</code> ファイル)。
+必要なライブラリに加えて、<em>ROS2</em> メッセージの種類を生成した結果として作成されたライブラリも含まれています。これらは通信に使用されます。</li>
+<li><em>スクリプト</em> - <code>R2FU</code> を <em>Unity</em> で使用するためのスクリプト - 詳細は以下の <a href="#scripts">下記</a> をご覧ください。</li>
+<li><em>拡張スクリプト</em> - <code>R2FU</code> を <em>CoRE.SIM</em> で使用するためのスクリプト。単一のメイン <em>Node</em> の抽象化とインタフェースの簡略化を提供します - 詳細は以下の <a href="#extension-scripts">下記</a> をご覧ください。これらのスクリプトはライブラリ自体ではなく、直接ディレクトリ <code>Assets/CoRE.SIM/Scripts/ROS/**</code> にあります。</li>
+</ul>
+<h3 id="_3">スクリプト</h3>
+<ul>
+<li><code>ROS2UnityCore</code> - <em>ROS2</em> ノードと実行可能なアクションの処理を行うための主要なクラス。専用スレッドで回転し、アクションを実行します（例：クロック、センサーのパブリッシュトリガーなど）。</li>
+<li><code>ROS2UnityComponent</code> - <em>Unity</em> コンポーネントとして動作するように適応された <code>ROS2UnityCore</code>。</li>
+<li><code>ROS2Node</code> - <em>ROS2</em> ノードを表すクラスで、<code>ROS2UnityComponent</code> クラスを介して構築する必要があり、回転もこのクラスで処理されます。</li>
+<li><code>ROS2ForUnity</code> - <em>ROS2</em> 通信の確認、適切な初期化、シャットダウンを処理する内部クラス。</li>
+<li><code>ROS2ListenerExample</code> - 基本的な <em>ROS2-&gt;Unity</em> 通信のテスト用に提供される例類クラス。</li>
+<li><code>ROS2TalkerExample</code> - 基本的な <em>Unity-&gt;ROS2</em> 通信のテスト用に提供される例類クラス。</li>
+<li><code>ROS2PerformanceTest</code> - <em>ROS2&lt;-&gt;Unity</em> 通信のパフォーマンステスト用に提供される例類クラス。</li>
+<li><code>Sensor</code> - <em>ROS2</em> 対応のセンサーの抽象基本クラス。</li>
+<li><code>Transformations</code> - <em>Unity</em> と <em>ROS2</em> の座標系間の変換関数のセット。</li>
+<li><code>PostInstall</code> - <code>R2FU</code> メタデータファイルのインストールを処理する内部クラス。</li>
+<li><code>Time</code> スクリプト - 異なる時間源を使用できるようにする一連のクラス：<ul>
+<li><code>ROS2Clock</code> - <em>Unity</em> または <em>ROS2</em> システム時間と <em>ROS2</em> メッセージ間のインタフェースを提供する <em>ROS2</em> クロッククラス。</li>
+<li><code>ROS2TimeSource</code> - <em>ROS2</em> 時間を取得します（デフォルトではシステム時間）。</li>
+<li><code>UnityTimeSource</code> - <em>Unity</em> 時間を取得します。</li>
+<li><code>DotnetTimeSource</code> - <code>Stopwatch</code> を使用して解像度を高めた <em>Unity</em> <code>DateTime</code> ベースのクロックを取得します。</li>
+<li><code>ITimeSource</code> - 任意のソースからの一般的な時間の取得用のインタフェース。</li>
+<li><code>TimeUtils</code> - 時間変換用のユーティリティ。</li>
+</ul>
+</li>
+</ul>
+<p>拡張スクリプト
+さらに、<em>CoRE.SIM</em>を<code>R2FU</code>の使用に適応させるために、以下のスクリプトが使用されています。</p>
+<ul>
+<li><code>SimulatorROS2Node</code> - これは<em>CoRE.SIM&lt;-&gt;ROS2</em>の通信に直接責任を持つクラスです。</li>
+<li>
+<p><code>ClockPublisher</code> - <em>SimulatorROS2Node</em>で実行されているクロックからのシミュレーション時間の発行を可能にします。
+シーンにコンポーネントとして追加する必要があり、シーンが実行されると現在の時間を発行します。</p>
+<p><img alt="clock_publisher" src="clock_publisher.png" /></p>
+</li>
+<li>
+<p><code>QoSSettings</code> - これは<em>CoRE.SIM</em>内のサブスクライバーとパブリッシャーの<em>QoS</em>を指定する<em>ROS2</em>の相当です。
+<a href="https://github.com/RobotecAI/ros2cs">Ros2cs</a>ライブラリから<a href="https://github.com/RobotecAI/ros2cs/blob/develop/src/ros2cs/ros2cs_core/QualityOfServiceProfile.cs"><code>QualityOfServiceProfile</code></a>の実装を使用しています。</p>
+</li>
+<li><code>ROS2Utility</code> - これは、例えば、<em>ROS2</em>の座標系から<em>CoRE.SIM</em>の座標系に位置を変換するためのユーティリティを持つクラスです。</li>
+<li><code>DiagnosticsManager</code> - <code>*.yaml</code>設定ファイルで説明されている要素に対する診断情報を出力します。</li>
+</ul>
+<h2 id="default-message-types">Default message types</h2>
+<p>The basic <em>ROS2</em> msgs types that are supported in <em>CoRE.SIM</em> by default include:</p>
+<ul>
+<li><a href="https://index.ros.org/r/common_interfaces/github-ros2-common_interfaces/">common_interfaces</a>:<ul>
+<li><a href="https://index.ros.org/p/std_msgs/github-ros2-common_interfaces/#humble"><code>std_msgs</code></a>.</li>
+<li><a href="https://index.ros.org/p/geometry_msgs/github-ros2-common_interfaces/#humble"><code>geometry_msgs</code></a>,</li>
+<li><a href="https://index.ros.org/p/sensor_msgs/github-ros2-common_interfaces/#humble"><code>sensor_msgs</code></a>,</li>
+<li><a href="https://index.ros.org/p/nav_msgs/github-ros2-common_interfaces/#humble"><code>nav_msgs</code></a>,</li>
+<li><a href="https://index.ros.org/p/diagnostic_msgs/github-ros2-common_interfaces/#humble"><code>diagnostic_msgs</code></a>,</li>
+</ul>
+</li>
+<li><a href="https://index.ros.org/r/rcl_interfaces/github-ros2-rcl_interfaces/">rcl_interfaces</a>:<ul>
+<li><a href="https://index.ros.org/p/builtin_interfaces/github-ros2-rcl_interfaces/#humble"><code>builtin_interfaces</code></a>,</li>
+<li><a href="https://index.ros.org/p/action_msgs/github-ros2-rcl_interfaces/#humble"><code>action_msgs</code></a>,</li>
+<li><a href="https://index.ros.org/p/rosgraph_msgs/github-ros2-rcl_interfaces/#humble"><code>rosgraph_msgs</code></a>,</li>
+<li><a href="https://index.ros.org/p/test_msgs/github-ros2-rcl_interfaces/#humble"><code>test_msgs</code></a>.</li>
+</ul>
+</li>
+<li>Others:<ul>
+<li><a href="https://index.ros.org/p/tf2_msgs/github-ros2-geometry2/#humble"><code>tf2_msgs</code></a>,</li>
+<li><a href="https://index.ros.org/p/unique_identifier_msgs/github-ros2-unique_identifier_msgs/#humble"><code>unique_identifier_msgs</code></a>.</li>
+</ul>
+</li>
+</ul>
+<p>In order for the message package to be used in <em>Unity</em>, its <code>*.dll</code> and <code>*.so</code> libraries must be generated using <code>R2FU</code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Custom message</p>
+<p>If you want to generate a custom message to allow it to be used in <em>CoRE.SIM</em> please read <a href="../AddACustomROS2Message/">this tutorial</a>.</p>
+</div>
+<h2 id="use-of-generated-messages-in-unity">Use of generated messages in <em>Unity</em></h2>
+<p>Each message type is composed of other types - which can also be a complex type.
+All of them are based on built-in <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types"><em>C#</em> types</a>.
+The most common built-in types in messages are <code>bool</code>, <code>int</code>, <code>double</code> and <code>string</code>.
+These types have their communication equivalents using <em>ROS2</em>.</p>
+<p>A good example of a complex type that is added to other complex types in order to specify a reference - in the form of a timestamp and a frame - is <a href="https://docs.ros2.org/latest/api/std_msgs/msg/Header.html">std_msgs/Header</a>.
+This message has the following form:</p>
+<div class="highlight"><pre><span></span><code><span class="n">builtin_interfaces</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">Time</span><span class="w"> </span><span class="n">stamp</span>
+<span class="kt">string</span><span class="w"> </span><span class="n">frame_id</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">ROS2 directive</p>
+<p>In order to work with <em>ROS2</em> in <em>Unity</em>, remember to add the directive <code>using ROS2;</code> at the top of the file to import types from this namespace.</p>
+</div>
+<h3 id="create-an-object">Create an object</h3>
+<p>The simplest way to create an object of <a href="https://docs.ros2.org/latest/api/std_msgs/msg/Header.html"><code>Header</code></a> type is:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Header</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;map&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>It is not required to define the value of each field.
+As you can see, it creates an object, filling only <code>frame_id</code> field - and left the field of complex <a href="https://docs.ros2.org/latest/api/builtin_interfaces/msg/Time.html"><code>builtin_interfaces/msg/Time</code></a> type initialized by default.
+Time is an important element of any message, how to fill it is written <a href="#filling-a-time">here</a>.</p>
+<h3 id="accessing-and-filling-in-message-fields">Accessing and filling in message fields</h3>
+<p>As you might have noticed in the previous example, a <em>ROS2</em> message in <em>Unity</em> is just a structure containing the same fields - keep the same names and types.
+Access to its fields for reading and filling is the same as for any <em>C#</em> structure.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">header2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Header</span><span class="p">();</span>
+<span class="n">header2</span><span class="p">.</span><span class="n">Frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;map&quot;</span><span class="p">;</span>
+<span class="n">header2</span><span class="p">.</span><span class="n">Stamp</span><span class="p">.</span><span class="n">sec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1234567&quot;</span><span class="p">;</span>
+<span class="n">Debug</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="s">$&quot;StampSec: {header2.Stamp.sec} and Frame: {header2.Frame_id}&quot;</span><span class="p">);</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Field names</p>
+<p>There is one always-present difference in field names.
+The <strong>first letter</strong> of each message field in <em>Unity</em> is <strong>always</strong> <strong>uppercase</strong> - even if the base <em>ROS2</em> message from which it is generated is lowercase.</p>
+</div>
+<h3 id="filling-a-time">Filling a time</h3>
+<p>In order to complete the time field of the <a href="https://docs.ros2.org/latest/api/std_msgs/msg/Header.html"><code>Header</code></a> message, we recommend the following methods in <em>CoRE.SIM</em>:</p>
+<ol>
+<li>
+<p>When the message has no <a href="https://docs.ros2.org/latest/api/std_msgs/msg/Header.html"><code>Header</code></a> but only the <a href="https://docs.ros2.org/latest/api/builtin_interfaces/msg/Time.html"><code>Time</code></a> type:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">header2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Header</span><span class="p">();</span>
+<span class="n">header2</span><span class="p">.</span><span class="n">Stamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">GetCurrentRosTime</span><span class="p">();</span>
+</code></pre></div>
+</li>
+<li>
+<p>When the message has a <a href="https://docs.ros2.org/latest/api/std_msgs/msg/Header.html"><code>Header</code></a> - like for example  <a href="https://github.com/tier4/autoware_auto_msgs/blob/tier4/main/autoware_auto_vehicle_msgs/msg/VelocityReport.idl">autoware_auto_vehicle_msgs/VelocityReport</a>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">velocityReportMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">autoware_auto_vehicle_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">VelocityReport</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">Header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Header</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;map&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">velocityReportMsgHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">velocityReportMsg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MessageWithHeader</span><span class="p">;</span>
+<span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">UpdateROSTimestamp</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">velocityReportMsgHeader</span><span class="p">);</span>
+</code></pre></div>
+</li>
+</ol>
+<p>These methods allow to fill the <a href="https://docs.ros2.org/latest/api/builtin_interfaces/msg/Time.html"><code>Time</code></a> field in the message object with the simulation time - from <em>ROS2Clock</em></p>
+<h3 id="create-a-message-with-array">Create a message with array</h3>
+<p>Some message types contain an <a href="https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/">array</a> of some type.
+An example of such a message is <a href="https://docs.ros2.org/foxy/api/nav_msgs/msg/Path.html"><code>nav_msgs/Path</code></a>, which has a <a href="https://docs.ros2.org/foxy/api/geometry_msgs/msg/PoseStamped.html"><code>PoseStamped</code></a> array.
+In order to fill such an array, you must first create a <a href="https://learn.microsoft.com/pl-pl/dotnet/api/system.collections.generic.list-1?view=net-8.0"><code>List&lt;T&gt;</code></a>, fill it and then convert it to a <a href="https://learn.microsoft.com/pl-pl/dotnet/api/system.collections.generic.list-1.toarray?view=net-8.0">raw array</a>.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">posesList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">geometry_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">PoseStamped</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="m">5</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">poseStampedMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">geometry_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">PoseStamped</span><span class="p">();</span>
+<span class="w">    </span><span class="n">poseStampedMsg</span><span class="p">.</span><span class="n">Pose</span><span class="p">.</span><span class="n">Position</span><span class="p">.</span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="n">poseStampedMsg</span><span class="p">.</span><span class="n">Pose</span><span class="p">.</span><span class="n">Position</span><span class="p">.</span><span class="n">Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="o">-</span><span class="n">i</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">poseStampedMsgHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">poseStampedMsg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MessageWithHeader</span><span class="p">;</span>
+<span class="w">    </span><span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">UpdateROSTimestamp</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">poseStampedMsgHeader</span><span class="p">);</span>
+<span class="w">    </span><span class="n">posesList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">poseStampedMsg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">pathMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">nav_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Path</span><span class="p">(){</span><span class="n">Poses</span><span class="o">=</span><span class="n">posesList</span><span class="p">.</span><span class="n">ToArray</span><span class="p">()};</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">pathMsgHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pathMsg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MessageWithHeader</span><span class="p">;</span>
+<span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">UpdateROSTimestamp</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">pathMsgHeader</span><span class="p">);</span>
+<span class="c1">// pathMsg is ready</span>
+</code></pre></div>
+<h3 id="publish-on-the-topic">Publish on the topic</h3>
+<p>In order to publish messages, a publisher object must be created.
+The static method <code>CreatePublisher</code> of the <code>SimulatorROS2Node</code> makes it easy.
+You must specify the <em>type</em> of message, the <em>topic</em> on which it will be published and the <em>QoS</em> profile.<br>
+Below is an example of <code>autoware_auto_vehicle_msgs.msg.VelocityReport</code> type message publication with a frequency of <code>30Hz</code> on <code>/vehicle/status/velocity_status</code> topic, the <a href="https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html"><em>QoS</em></a> profile is <code>(Reliability=Reliable, Durability=Volatile, History=Keep last, Depth=1</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">ROS2</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">CoRE.SIM</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">VehicleReportRos2Publisher</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">publishHz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30</span><span class="p">;</span>
+<span class="w">        </span><span class="n">QoSSettings</span><span class="w"> </span><span class="n">qosSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QoSSettings</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ReliabilityPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ReliabilityPolicy</span><span class="p">.</span><span class="n">QOS_POLICY_RELIABILITY_RELIABLE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">DurabilityPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DurabilityPolicy</span><span class="p">.</span><span class="n">QOS_POLICY_DURABILITY_VOLATILE</span><span class="p">,</span>
+<span class="w">            </span><span class="n">HistoryPolicy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HistoryPolicy</span><span class="p">.</span><span class="n">QOS_POLICY_HISTORY_KEEP_LAST</span><span class="p">,</span>
+<span class="w">            </span><span class="n">Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">velocityReportTopic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/vehicle/status/velocity_status&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">autoware_auto_vehicle_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">VelocityReport</span><span class="w"> </span><span class="n">velocityReportMsg</span><span class="p">;</span>
+<span class="w">        </span><span class="n">IPublisher</span><span class="o">&lt;</span><span class="n">autoware_auto_vehicle_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">VelocityReport</span><span class="o">&gt;</span><span class="w"> </span><span class="n">velocityReportPublisher</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Create a message object and fill in the constant fields</span>
+<span class="w">            </span><span class="n">velocityReportMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">autoware_auto_vehicle_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">VelocityReport</span><span class="p">()</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">Header</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Header</span><span class="p">()</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">Frame_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;map&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">};</span>
+
+<span class="w">            </span><span class="c1">// Create publisher with specific topic and QoS profile</span>
+<span class="w">            </span><span class="n">velocityReportPublisher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">CreatePublisher</span><span class="o">&lt;</span><span class="n">autoware_auto_vehicle_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">VelocityReport</span><span class="o">&gt;</span><span class="p">(</span><span class="n">velocityReportTopic</span><span class="p">,</span><span class="w"> </span><span class="n">qosSettings</span><span class="p">.</span><span class="n">GetQoSProfile</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">         </span><span class="kt">bool</span><span class="w"> </span><span class="nf">NeedToPublish</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">timer</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">;</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.0f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">publishHz</span><span class="p">;</span>
+<span class="w">            </span><span class="n">interval</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="m">0.00001f</span><span class="p">;</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">timer</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">interval</span><span class="p">)</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">            </span><span class="n">timer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">FixedUpdate</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Provide publications with a given frequency</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">NeedToPublish</span><span class="p">())</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Fill in non-constant fields</span>
+<span class="w">                </span><span class="n">velocityReportMsg</span><span class="p">.</span><span class="n">Longitudinal_velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.00f</span><span class="p">;</span>
+<span class="w">                </span><span class="n">velocityReportMsg</span><span class="p">.</span><span class="n">Lateral_velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.00f</span><span class="p">;</span>
+<span class="w">                </span><span class="n">velocityReportMsg</span><span class="p">.</span><span class="n">Heading_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.00f</span><span class="p">;</span>
+
+<span class="w">                </span><span class="c1">// Update Stamp</span>
+<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">velocityReportMsgHeader</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">velocityReportMsg</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">MessageWithHeader</span><span class="p">;</span>
+<span class="w">                </span><span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">UpdateROSTimestamp</span><span class="p">(</span><span class="k">ref</span><span class="w"> </span><span class="n">velocityReportMsgHeader</span><span class="p">);</span>
+
+<span class="w">                </span><span class="c1">// Publish</span>
+<span class="w">                </span><span class="n">velocityReportPublisher</span><span class="p">.</span><span class="n">Publish</span><span class="p">(</span><span class="n">velocityReportMsg</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="subscribe-to-the-topic">Subscribe to the topic</h3>
+<p>In order to subscribe messages, a subscriber object must be created.
+The static method <code>CreateSubscription</code> of the <code>SimulatorROS2Node</code> makes it easy.
+You must specify the <em>type</em> of message, the <em>topic</em> from which it will be subscribed and the <a href="https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html"><em>QoS</em></a> profile.
+In addition, the <em>callback</em> must be defined, which will be called when the message is received - in particular, it can be defined as a <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions">lambda expression</a>.<br>
+Below is an example of <code>std_msgs.msg.Bool</code> type message subscription on <code>/vehicle/is_vehicle_stopped</code> topic, the <a href="https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html"><em>QoS</em></a> profile is <a href="https://docs.ros.org/en/humble/Concepts/About-Quality-of-Service-Settings.html"><code>“system default”</code></a>:
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">ROS2</span><span class="p">;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">CoRE.SIM</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">VehicleStoppedSubscriber</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">MonoBehaviour</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">QoSSettings</span><span class="w"> </span><span class="n">qosSettings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">QoSSettings</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">string</span><span class="w"> </span><span class="n">isVehicleStoppedTopic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/vehicle/is_vehicle_stopped&quot;</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">isVehicleStopped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">        </span><span class="n">ISubscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">isVehicleStoppedSubscriber</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isVehicleStoppedSubscriber</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">CreateSubscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isVehicleStoppedTopic</span><span class="p">,</span><span class="w"> </span><span class="n">VehicleStoppedCallback</span><span class="p">,</span><span class="w"> </span><span class="n">qosSettings</span><span class="p">.</span><span class="n">GetQoSProfile</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">VehicleStoppedCallback</span><span class="p">(</span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Bool</span><span class="w"> </span><span class="n">msg</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">isVehicleStopped</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">msg</span><span class="p">.</span><span class="n">Data</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">void</span><span class="w"> </span><span class="nf">OnDestroy</span><span class="p">()</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">SimulatorROS2Node</span><span class="p">.</span><span class="n">RemoveSubscription</span><span class="o">&lt;</span><span class="n">std_msgs</span><span class="p">.</span><span class="n">msg</span><span class="p">.</span><span class="n">Bool</span><span class="o">&gt;</span><span class="p">(</span><span class="n">isVehicleStoppedSubscriber</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ROS2TopicList/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ROS2 トピックリスト">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                ROS2 トピックリスト
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../DeveloperGuide/Documentation/" class="md-footer__link md-footer__link--next" aria-label="Next: ドキュメント">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                ドキュメント
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.footer", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7c377c4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
