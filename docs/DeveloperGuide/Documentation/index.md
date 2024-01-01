@@ -10,9 +10,10 @@
 
 2. ローカルホスティングを開始します。
    ```
-   $ cd CoRE.SIM
-   $ python3 -m mkdocs serve
-   
+   cd CoRE.SIM
+   python3 -m mkdocs serve
+   ```
+   ```
     INFO     -  Building documentation...
     INFO     -  Cleaning site directory
     INFO     -  Documentation built in 0.16 seconds
@@ -21,8 +22,7 @@
    ```
 
 3. ウェブブラウザで `http://127.0.0.1:8000/` にアクセスします。
-   <!-- (TODO 画像を変更) -->
-   ![](image_0.png)
+   ![](web.png)
 
 詳細は [Material for MkDocs - 入門](https://squidfunk.github.io/mkdocs-material/getting-started/) を参照してください。
 

@@ -5,7 +5,8 @@ repo_url: https://github.com/StrayedCats/CoRE.SIM
 theme:
   name: material
   palette:
-    primary: indigo
+    primary: black
+    scheme: slate
   features:
     - navigation.sections
     - navigation.footer
@@ -39,14 +40,9 @@ nav:
     - デモ: GettingStarted/QuickStartDemo/index.md
     - Unityを使ってセットアップ: GettingStarted/SetupUnityProject/index.md
 
-  - コンポーネント:
-    - センサー:
-      - カメラ センサー: Components/Sensors/CameraSensor/index.md
-      - IMU センサー: Components/Sensors/IMUSensor/index.md
-    - ROS2:
-      - ROS2 トピックリスト: Components/ROS2/ROS2TopicList/index.md
-      - カスタムROS2 msgを追加数r: Components/ROS2/AddACustomROS2Message/index.md
-      - ROS2 For Unity: Components/ROS2/ROS2ForUnity/index.md
+  - ROS2:
+    - ROS2 トピックリスト: ROS2/ROS2TopicList/index.md
+    - ROS2 For Unity: ROS2/ROS2ForUnity/index.md
 
   - 開発者ガイド:
     - ドキュメント: DeveloperGuide/Documentation/index.md
