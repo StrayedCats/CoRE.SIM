@@ -1,6 +1,6 @@
 # CoRE.SIM
 
-![CoRE SIM](./pic/coresim_top.png)
+![CoRE SIM](coresim_top.png)
 
 CoRE.SIMはCoRE-1向けの最高のシーンシミュレータです。CoRE.SIMは、tier4/AWSIMからフォークされたプロジェクトです。
 
